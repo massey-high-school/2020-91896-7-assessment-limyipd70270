@@ -15,52 +15,29 @@ def num_check(question):
         except ValueError:
             print(error)
 
-# get all dimensions, will use the needed dimensions later to calculate the area and/or perimeter
-all_lengths = ""
-while all_lengths() != "xxx":
-    #
+
+# Initialise lists
+# all_lengths includes every shapes' dimensions
+all_lengths = []
+
+# get all dimensions, will use the needed dimensions later to calculate the perimeter
+print("Please enter the lengths for your shape (or radius if it's a circle), pressing 'enter' after each one. Print the number '000' once you have entered all of them")
+
+length = ""
+while length != "000":
+    # shapes_lengths is the list for the individual shape's lengths added
     shapes_lengths = []
-    print("Please enter each length for your shape (or radius if it's a circle) and enter 'xxx' once you have entered all of them")
-    length = num_check("length: ")
-""
-circle = pi(r^2)
-square = base * height
-rectangle = base * height
-triangle = (base * height)/2
-trapezium = ((top length + base) * height)/2
-parallelogram = base * height
 
-pi= 3.14159265
-
-circle = 2pir
-square = get all input in square length and add items in there
-rectangle =
-triangle =
-trapezium =
-parallelogram =
-
-    # list for each row of expenses
-    single_expense = []
-    expense = not_blank("Item Name: ", "You can't leave this blank, please enter the item name", "yes")
+    # length is for each side of the shape
+    length = num_check("Length: ")
 
     # If user enters exit code, break out of loop
-    if expense.lower() == "xxx":
+    if length == "000":
         break
 
-#How do I separate it for the fixed costs list since it doesn't need an amount for each???
+    shapes_lengths.append(length)
+    all_lengths.append(shapes_lengths)
 
-    # Ask user how many of each item is needed
-    expense_amount = num_check("How many do you need?", "Please enter a whole number more than zero", int)
+print(shapes_lengths)
+print(all_lengths)
 
-     # Get the item costs
-    single_cost = num_check("Item Cost: $", "Please enter a number more than zero", float)
-
-    single_expense.append(expense)
-    single_expense.append(single_cost)
-
-    # adds each row of costs to cost list
-    expense_list.append(single_expense)
-
-
-for item in expense_list:
-    print("{}: {}".format(item[0], item[1]))
