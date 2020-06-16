@@ -1,29 +1,20 @@
-def not_blank(question, error_msg, num_ok):
+# string checker from Mrs Gottschalk, edited so can have different error messages
+def string_checker(question, error_msg, to_check):
     error = error_msg
 
     valid = False
     while not valid:
-        response = input(question)
-        has_errors = ""
+        response = input(question).lower()
 
-        if num_ok != "yes":
-            # look at each character in string and if it's a number, complain
-            for letter in response:
-                if letter.isdigit() == True:
-                    has_errors = "yes"
-                    break
-
-        if response == "":
-            print(error)
-            continue
-        elif has_errors != "":
-            print(error)
-        else:
+        if response in to_check:
             return response
+        else:
+            print(error)
 
+# *** Main Routine starts here ***
+
+pab_list = ["p", "perimeter", "a", "area", "b", "both"]
 
 # ask user if they want to find the perimeter and/or the area
-
-ask_pa = not_blank("Would you like to find the perimeter (P), area (A) or both (B)? ", "Please enter 'P', 'A', or 'B'", "no")
-if ask_pa != use string converter
+ask_pa = string_checker("Would you like to find the perimeter (P), area (A) or both (B)? ", "Please enter 'P', 'A', or 'B'", pab_list)
 print (ask_pa)
