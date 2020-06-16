@@ -1,6 +1,5 @@
-
 # string checker from Mrs Gottschalk, edited so can have different error messages
-def string_checker(question, error_msg, to_check):
+def string_checker(question, error_msg, num_ok, to_check):
     error = error_msg
 
     valid = False
@@ -20,5 +19,5 @@ shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium"]
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium")
 print()
 
-ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ", "Please choose one of the shapes from the list!", shapes_list)
+ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ", "Please choose one of the shapes from the list!", "no", shapes_list)
 print(ask_shape)
