@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3316173b-8a07-48c8-8019-a4a546b297f1" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/03_Perimeter_and_Area_Tool.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/03_Perimeter_and_Area_Tool.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/06_shape_perimeter_v2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/07_shape_area_v2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/01_new_user.py" beforeDir="false" afterPath="$PROJECT_DIR$/01_new_user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/04_shape_dimensions.py" beforeDir="false" afterPath="$PROJECT_DIR$/04_shape_dimensions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/06_shape_perimeter.py" beforeDir="false" afterPath="$PROJECT_DIR$/06_shape_perimeter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/07_shape_area.py" beforeDir="false" afterPath="$PROJECT_DIR$/07_shape_area.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/08_ask_history.py" beforeDir="false" afterPath="$PROJECT_DIR$/08_ask_history.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/function_stuff.py" beforeDir="false" afterPath="$PROJECT_DIR$/function_stuff.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,15 +40,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniella\Documents\GitHub\2020-91896-7-assessment-limyipd70270" />
       <recent name="H:\Documents\2020\COM_201\03_Perimeter_and_Area_Tool" />
       <recent name="H:\Documents\2020\COM_201\02_Fundraising_Calculator" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.06_shape_perimeter">
+  <component name="RunManager" selected="Python.07_shape_area_v2">
     <configuration default="true" type="tests" factoryName="Attests">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -66,48 +70,6 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <configuration name="01_new_user" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="03_Perimeter_and_Area_Tool" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/01_new_user.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="02_ask_shape" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="03_Perimeter_and_Area_Tool" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/02_ask_shape.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="04_shape_dimensions" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="03_Perimeter_and_Area_Tool" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,27 +83,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/04_shape_dimensions.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="05_ask_PA" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="03_Perimeter_and_Area_Tool" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/05_ask_PA.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -171,20 +112,83 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="06_shape_perimeter_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="03_Perimeter_and_Area_Tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/06_shape_perimeter_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="07_shape_area" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="03_Perimeter_and_Area_Tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/07_shape_area.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="07_shape_area_v2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="03_Perimeter_and_Area_Tool" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/07_shape_area_v2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
-      <item itemvalue="Python.05_ask_PA" />
-      <item itemvalue="Python.02_ask_shape" />
-      <item itemvalue="Python.01_new_user" />
-      <item itemvalue="Python.06_shape_perimeter" />
       <item itemvalue="Python.04_shape_dimensions" />
+      <item itemvalue="Python.06_shape_perimeter" />
+      <item itemvalue="Python.06_shape_perimeter_v2" />
+      <item itemvalue="Python.07_shape_area" />
+      <item itemvalue="Python.07_shape_area_v2" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.07_shape_area_v2" />
+        <item itemvalue="Python.07_shape_area" />
+        <item itemvalue="Python.06_shape_perimeter_v2" />
         <item itemvalue="Python.06_shape_perimeter" />
         <item itemvalue="Python.04_shape_dimensions" />
-        <item itemvalue="Python.01_new_user" />
-        <item itemvalue="Python.05_ask_PA" />
-        <item itemvalue="Python.02_ask_shape" />
       </list>
     </recent_temporary>
   </component>
@@ -210,36 +214,41 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1345" height="188" key="GridCell.Tab.0.bottom" timestamp="1592379795874">
+    <state width="1345" height="133" key="GridCell.Tab.0.bottom" timestamp="1592396784476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592379795874" />
-    <state width="1345" height="188" key="GridCell.Tab.0.center" timestamp="1592379795874">
+    <state width="1345" height="133" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592396784476" />
+    <state width="1345" height="133" key="GridCell.Tab.0.center" timestamp="1592396784476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592379795874" />
-    <state width="1345" height="188" key="GridCell.Tab.0.left" timestamp="1592379795874">
+    <state width="1345" height="133" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1592396784476" />
+    <state width="1345" height="133" key="GridCell.Tab.0.left" timestamp="1592396784476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592379795874" />
-    <state width="1345" height="188" key="GridCell.Tab.0.right" timestamp="1592379795874">
+    <state width="1345" height="133" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1592396784476" />
+    <state width="1345" height="133" key="GridCell.Tab.0.right" timestamp="1592396784476">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="188" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592379795874" />
-    <state x="186" y="9" key="SettingsEditor" timestamp="1592371504019">
+    <state width="1345" height="133" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1592396784476" />
+    <state width="1345" height="234" key="GridCell.Tab.1.bottom" timestamp="1592396784471">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592371504019" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/04_shape_dimensions.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1345" height="234" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1592396784471" />
+    <state width="1345" height="234" key="GridCell.Tab.1.center" timestamp="1592396784471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="234" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1592396784471" />
+    <state width="1345" height="234" key="GridCell.Tab.1.left" timestamp="1592396784471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="234" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1592396784471" />
+    <state width="1345" height="234" key="GridCell.Tab.1.right" timestamp="1592396784471">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1345" height="234" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1592396784471" />
+    <state x="186" y="9" key="SettingsEditor" timestamp="1592380512818">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="186" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1592380512818" />
   </component>
 </project>

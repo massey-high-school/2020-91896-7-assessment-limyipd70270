@@ -39,6 +39,8 @@ def num_check(question):
         except ValueError:
             print(error)
 
+# circle perimeter works for v1 and v2, normal perimeter works only in v1
+
 
 
 # Ask if they want a fixed_cost list and if so, get inputs for it

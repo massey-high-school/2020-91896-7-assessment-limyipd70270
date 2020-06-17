@@ -11,36 +11,50 @@ def string_checker(question, error_msg, num_ok, to_check):
         else:
             print(error)
 
+# Number checking function (number must be a float that is more than 0)
+def num_check(question):
+    error = "Please enter a number that is more than zero"
+
+    valid = False
+    while not valid:
+        try:
+            response = float(input(question))
+
+            if response <= 0:
+                print(error)
+            else:
+                return response
+
+        except ValueError:
+            print(error)
+
 # *** Main Routine starts here ***
 
-shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium"]
+shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium, parallelogram"]
 
 pi= 3.14159265
 
 # Initialise lists
 # shapes_lengths is the list for the individual shape's lengths added
-shapes_lengths = [5, 2, 4]
+all_lengths = []
+shapes_lengths = [1, 2, 3]
 
 # ask user what shape they need to find the area and/or perimeter for
-print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium")
+print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
 print()
 
 ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ",
                            "Please choose one of the shapes from the list!", "no", shapes_list)
 
-# does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
+# !!!!!!!!!!!!! does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
 if ask_shape == "circle":
-    length_subtotal = 0
-    for item in shapes_lengths:
-        length_subtotal = 2*pi*item
+    r = num_check("Radius: ")
+    perimeter = 0
+    perimeter = 2*pi*r
 
 if ask_shape != "circle":
-    length_subtotal = 0
+    perimeter = 0
     for item in shapes_lengths:
-        length_subtotal += item
+        perimeter += item
 
-print("Perimeter: {:.2f}".format(length_subtotal))
-
-
-
-
+print("Perimeter: {:.2f}".format(perimeter))

@@ -38,11 +38,6 @@ pi= 3.14159265
 all_lengths = []
 shapes_lengths = []
 
-r = 2
-base = 2
-height = 3
-top_length = 4
-
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
 print()
@@ -50,21 +45,31 @@ print()
 ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ",
                            "Please choose one of the shapes from the list!", "no", shapes_list)
 
+# asks for radius base and height, don't know what it calculates???
 if ask_shape == "circle":
+    r = num_check("Radius: ")
     area = 0
     area = pi*(r**2)
 
 # parallelogram doesn't work???
 if ask_shape == "square" or "rectangle" or "parallelogram":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
     area = 0
     area = base * height
 
+# asks the base and height twice and only takes the last two responses into calculation
 if ask_shape == "triangle":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
     area = 0
     area = (base * height)/2
 
-# trapezium doesn't work????
+# trapezium doesn't work???
 if ask_shape == "trapezium":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
+    top_length = num_check("Top length: ")
     area = 0
     area = ((top_length + base) * height)/2
 
