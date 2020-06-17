@@ -25,8 +25,9 @@ def not_blank(question, error_msg, num_ok):
 # all_lengths includes every shapes' dimensions
 all_lengths = []
 
+# what if they have a square which have the same measurements on all sides, would they put the 4 lengths repeated or just once?
 # get all dimensions, will use the needed dimensions later to calculate the perimeter
-print("Please enter the lengths (don't need to include the unit of measurement) for your shape (or radius if it's a circle), pressing 'enter' after each one. Print the number 'xxx' once you have entered all of them")
+print("Please enter the lengths (don't need to include the unit of measurement) for your shape (or radius if it's a circle), pressing 'enter' after each one. Print 'xxx' once you have entered all of them")
 
 length = ""
 while length != "xxx":
