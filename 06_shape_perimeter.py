@@ -30,7 +30,7 @@ def num_check(question):
 
 # *** Main Routine starts here ***
 
-shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium, parallelogram"]
+shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
 
 pi= 3.14159265
 

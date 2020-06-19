@@ -34,12 +34,41 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
             else:
                 print(error)
 
-history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? ", error_msg="Please enter 'yes' or 'no'", num_ok=False)
-history_ask = ""
 
-if history_ask == "yes":
-    print(all_lengths)
+# *** Main Routine starts here ***
+# Variables
+shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
+pi= 3.14159265
 
-# If user enters no, break out of loop
-if history_ask != "yes":
-    break
+# ask user what shape they need to find the area and/or perimeter for
+print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+
+ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ", checklist=shapes_list,
+                           error_msg="Please choose one of the shapes from the list!", num_ok=False)
+
+if ask_shape == "circle":
+    r = input_checker("Radius: ")
+    area = pi*(r**2)
+
+if ask_shape == "rectangle" or ask_shape == "parallelogram":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    area = base * height
+
+if ask_shape == "square":
+    side = input_checker("Side: ")
+    area = side**2
+
+# asks the base and height twice and only takes the last two responses into calculation
+if ask_shape == "triangle":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    area = (base * height)/2
+
+if ask_shape == "trapezium":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    top_length = input_checker("Top length: ")
+    area = ((top_length + base) * height)/2
+# don't need area=0 bc not adding onto previous numbers
+print("Area: {:.2f}".format(area))
