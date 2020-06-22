@@ -1,5 +1,5 @@
 # string checker from Mrs Gottschalk, edited so can have different error messages
-def string_checker(question, error_msg, to_check):
+def string_checker(question, error_msg, num_ok, to_check):
     error = error_msg
 
     valid = False
