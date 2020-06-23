@@ -104,7 +104,7 @@ while loop:
         loop = False
 
 print("Perimeter: {:.2f}".format(perimeter))
-print(all_history)
+print(shape_history)
 # !!!!!!!!! does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
 
 

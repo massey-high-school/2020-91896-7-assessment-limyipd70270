@@ -50,7 +50,12 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # *** Main Routine starts here ***
 # Variables
 shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
+all_history = []
 pi= 3.14159265
+
+
+# shapes_lengths is the list for the individual shape's lengths added
+shape_history = []
 
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
@@ -58,29 +63,44 @@ print("Please choose from the following: \ncircle, square, rectangle, triangle, 
 ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ", checklist=shapes_list,
                            error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
+# append shape name to the history
+shape_history.append(ask_shape)
+
 if ask_shape == "circle":
     r = input_checker("Radius: ")
     area = pi*(r**2)
+    shape_history.append(area)
 
 if ask_shape == "rectangle" or ask_shape == "parallelogram":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = base * height
+    shape_history.append(area)
 
 if ask_shape == "square":
     side = input_checker("Side: ")
     area = side**2
+    shape_history.append(area)
 
 # asks the base and height twice and only takes the last two responses into calculation
 if ask_shape == "triangle":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = (base * height)/2
+    shape_history.append(area)
 
 if ask_shape == "trapezium":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     top_length = input_checker("Top length: ")
     area = ((top_length + base) * height)/2
+    shape_history.append(area)
+
+all_history.append(shape_history)
+
 # don't need area=0 bc not adding onto previous numbers
 print("Area: {:.2f}".format(area))
+
+# take away sys.exit bc don't need xxx anymore since it asks a certain amount of times and leave the y/n thing for asking
+# if they want another shape, or should i keep looping and ask for the next shape, allow xxx to stop
+# do dictionary for formulas

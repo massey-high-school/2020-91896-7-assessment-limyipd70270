@@ -13,10 +13,10 @@ def string_checker(question, error_msg, num_ok, to_check):
 
 # *** Main Routine starts here ***
 
-shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium"]
+shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
 
 # ask user what shape they need to find the area and/or perimeter for
-print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium")
+print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
 print()
 
 ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ", "Please choose one of the shapes from the list!", "no", shapes_list)
