@@ -83,6 +83,7 @@ while loop:
         shape_history.append(perimeter)
 
     if ask_shape != "circle":
+        print()
         print("Please enter the lengths (don't need to include the unit of measurement) for your shape, pressing 'enter' after each one.")
 
         num_lengths = shapes_list[ask_shape]
@@ -96,15 +97,17 @@ while loop:
             perimeter += length
         shape_history.append(perimeter)
 
+    print("Perimeter: {:.2f}".format(perimeter))
     all_history.append(shape_history)
     # gotta reset to [] when you start to add for a new shape when you make it ask multiple shapes in a while loop later
 
-    rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
-    if rerun == "n":
+    rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
+    print()
+    if rerun == "n" or rerun == "no":
         loop = False
 
-print("Perimeter: {:.2f}".format(perimeter))
-print(shape_history)
+for item in all_history:
+    print("{}: {:.2f}".format(item[0], item[1]))
 # !!!!!!!!! does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
 
 

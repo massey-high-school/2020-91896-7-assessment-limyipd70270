@@ -63,31 +63,33 @@ ask_shape = input_checker("What shape would you like to find the area and/or per
                           checklist=shapes_list)
 loop = True
 while loop:
-    if ask_shape != "circle":
-        length = input_checker("Length: ")
-
-        # !!!!!!! all_lengths is for the history list, do i need to add different variable for when i add the lengths of area dimensions??????????
-        # bc all_lengths would have ALL the lengths which some are repeated
-        shapes_lengths.append(length)
-
     if ask_shape == "circle":
         # radius used for both area/perimeter
         r = input_checker("Radius: ")
+        # print differently, not blank as int and num check as float, make all answers nicely as one of these types
+        shapes_lengths.append(r)
+        print(shapes_lengths)
 
-# dimensions to calculate the area
-base = input_checker("Base: ")
-height = input_checker("Height: ")
-top_length = input_checker("Top length: ")
+    if ask_shape != "circle":
+        length = ""
+        while length != "xxx":
+            length = input_checker("Length: ")
+            # !!!!!!! all_lengths is for the history list, do i need to add different variable for when i add the lengths of area dimensions??????????
+            # bc all_lengths would have ALL the lengths which some are repeated
+            shapes_lengths.append(length)
 
-# put in the lists for printing for history
-shapes_lengths.append(r)
-shapes_lengths.append(base)
-shapes_lengths.append(height)
-shapes_lengths.append(top_length)
+    # dimensions to calculate the area
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    top_length = input_checker("Top length: ")
 
-# print differently, not blank as int and num check as float, make all answers nicely as one of these types
-print(shapes_lengths)
+    # put in the lists for printing for history
+    shapes_lengths.append(base)
+    shapes_lengths.append(height)
+    shapes_lengths.append(top_length)
 
-# swap ask_PA and shape dimensions, and renumber to add the 3 as a component
+
+    print(shapes_lengths)
+    # swap ask_PA and shape dimensions, and renumber to add the 3 as a component
 
 
