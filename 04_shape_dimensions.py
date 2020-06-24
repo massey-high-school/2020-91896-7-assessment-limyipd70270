@@ -51,26 +51,31 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 shapes_lengths = []
 shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
 
-# !!!!!!!!!! what if they have a square which have the same measurements on all sides, would they put the 4 lengths repeated or just once?
-# dimensions to calculate the perimeter
-print("Please enter the measurements (don't include units) for your shape , pressing 'enter' after each one. Print 'xxx' once you have entered all of them")
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
 print()
 
-ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ",
-                          error_msg="Please choose one of the shapes from the list!", num_ok=False,
-                          checklist=shapes_list)
+ask_shape_a = input_checker("What shape would you like to find the area for? ",
+                            error_msg="Please choose one of the shapes from the list!", num_ok=False,
+                            checklist=shapes_list)
+
+ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
+                            error_msg="Please choose one of the shapes from the list!", num_ok=False,
+                            checklist=shapes_list)
+
+# dimensions to calculate the perimeter
+print("Please enter the measurements (make sure they're in the same unit but don't include them) for your shape.")
+
 loop = True
 while loop:
-    if ask_shape == "circle":
+    if ask_shape_a or ask_shape_p == "circle":
         # radius used for both area/perimeter
         r = input_checker("Radius: ")
         # print differently, not blank as int and num check as float, make all answers nicely as one of these types
         shapes_lengths.append(r)
         print(shapes_lengths)
 
-    if ask_shape != "circle":
+    if ask_shape_p != "circle":
         length = ""
         while length != "xxx":
             length = input_checker("Length: ")
@@ -78,16 +83,15 @@ while loop:
             # bc all_lengths would have ALL the lengths which some are repeated
             shapes_lengths.append(length)
 
-    # dimensions to calculate the area
-    base = input_checker("Base: ")
-    height = input_checker("Height: ")
-    top_length = input_checker("Top length: ")
+    if ask_shape_a != "circle":
+        base = input_checker("Base: ")
+        height = input_checker("Height: ")
+        top_length = input_checker("Top length: ")
 
-    # put in the lists for printing for history
-    shapes_lengths.append(base)
-    shapes_lengths.append(height)
-    shapes_lengths.append(top_length)
-
+        # put in the lists for printing for history
+        shapes_lengths.append(base)
+        shapes_lengths.append(height)
+        shapes_lengths.append(top_length)
 
     print(shapes_lengths)
     # swap ask_PA and shape dimensions, and renumber to add the 3 as a component

@@ -60,36 +60,36 @@ shape_history = []
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
 
-ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ", checklist=shapes_list,
+ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                            error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
 # append shape name to the history
-shape_history.append(ask_shape)
+shape_history.append(ask_shape_a)
 
-if ask_shape == "circle":
+if ask_shape_a == "circle":
     r = input_checker("Radius: ")
     area = pi*(r**2)
     shape_history.append(area)
 
-if ask_shape == "rectangle" or ask_shape == "parallelogram":
+if ask_shape_a == "rectangle" or ask_shape_a == "parallelogram":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = base * height
     shape_history.append(area)
 
-if ask_shape == "square":
+if ask_shape_a == "square":
     side = input_checker("Side: ")
     area = side**2
     shape_history.append(area)
 
 # asks the base and height twice and only takes the last two responses into calculation
-if ask_shape == "triangle":
+if ask_shape_a == "triangle":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = (base * height)/2
     shape_history.append(area)
 
-if ask_shape == "trapezium":
+if ask_shape_a == "trapezium":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     top_length = input_checker("Top length: ")

@@ -19,5 +19,7 @@ shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parall
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
 print()
 
-ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ", "Please choose one of the shapes from the list!", "no", shapes_list)
-print(ask_shape)
+ask_shape_a = string_checker("What shape would you like to find the area for? ", "Please choose one of the shapes from the list!", "no", shapes_list)
+print(ask_shape_a)
+ask_shape_p = string_checker("What shape would you like to find the perimeter for? ", "Please choose one of the shapes from the list!", "no", shapes_list)
+print(ask_shape_p)

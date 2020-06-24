@@ -70,23 +70,23 @@ while loop:
     print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
     print()
 
-    ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ",
+    ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
                                error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
 
     # append shape name to the history
-    shape_history.append(ask_shape)
+    shape_history.append(ask_shape_p)
 
     # !!!!!!!!! what if they have a square which have the same measurements on all sides, would they put the 4 lengths repeated or just once?
-    if ask_shape == "circle":
+    if ask_shape_p == "circle":
         r = input_checker("Radius: ")
         perimeter = 2*pi*r
         shape_history.append(perimeter)
 
-    if ask_shape != "circle":
+    if ask_shape_p != "circle":
         print()
         print("Please enter the lengths (don't need to include the unit of measurement) for your shape, pressing 'enter' after each one.")
 
-        num_lengths = shapes_list[ask_shape]
+        num_lengths = shapes_list[ask_shape_p]
         # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
 
         # initialise counter outside the for loop
