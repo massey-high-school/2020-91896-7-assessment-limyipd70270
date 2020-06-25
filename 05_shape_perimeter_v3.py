@@ -103,5 +103,3 @@ while loop:
 for item in all_history:
     print("{}: {:.2f}".format(item[0], item[1]))
 # make perimeter and area functionnnnnn
-
-    area          = ""
