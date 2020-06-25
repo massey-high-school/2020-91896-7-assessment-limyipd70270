@@ -1,3 +1,4 @@
+import sys
 # Some parameters assigned by default if not assigned in the function (keyword arguments, e.g. num_ok=True means if you don't assign a value to num_ok, it will just be True automatically)
 
 # Args:
@@ -15,15 +16,27 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
         error = error_msg # otherwise prints out the error msg in the function arguments
 
     while True: # for the whole thing, not the same as num_ok=True
-        if num_ok: # since it's set to true, it will do this bc it allows numbers otherwise, **
+        if num_ok: # since it's set to true, it will do this bc it allows numbers otherwise,
             # Check if number is valid measurement (positive)
-            response = float(input(question))
+            try:
+                response = input(question).lower()
+                if response == "xxx":
+                    sys.exit()
+                else:
+                    # If answer is not xxx, that means it is a number, or other characters
+                    # If it's a number need to convert string number to float number
+                    # If it's another character, trying to convert to float will fail and error out
+                    response = float(response)
+                # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
+                if response <= 0:
+                    print(error)
+                else:
+                    return response
 
-            # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
-            if response <= 0:
-                print(error)
-            else:
-                return response
+            except ValueError:
+                # Typing a non-number answers goes here, not including 'xxx'
+                print("Please print 'xxx' to exit or a number above zero!")
+                # After this line it just exits because of the "Error"
 
         else: # ** it goes to this since it can't have numbers and num_ok=false
             # Check if answer is in list
@@ -34,41 +47,60 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
             else:
                 print(error)
 
-
 # *** Main Routine starts here ***
 # Variables
 shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
+all_history = []
 pi= 3.14159265
+
+
+# shapes_lengths is the list for the individual shape's lengths added
+shape_history = []
 
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
 
-ask_shape = input_checker("What shape would you like to find the area and/or perimeter for? ", checklist=shapes_list,
+ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                            error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
-if ask_shape == "circle":
+# append shape name to the history
+shape_history.append(ask_shape_a)
+
+if ask_shape_a == "circle":
     r = input_checker("Radius: ")
     area = pi*(r**2)
+    shape_history.append(area)
 
-if ask_shape == "rectangle" or ask_shape == "parallelogram":
+if ask_shape_a == "rectangle" or ask_shape_a == "parallelogram":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = base * height
+    shape_history.append(area)
 
-if ask_shape == "square":
+if ask_shape_a == "square":
     side = input_checker("Side: ")
     area = side**2
+    shape_history.append(area)
 
 # asks the base and height twice and only takes the last two responses into calculation
-if ask_shape == "triangle":
+if ask_shape_a == "triangle":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     area = (base * height)/2
+    shape_history.append(area)
 
-if ask_shape == "trapezium":
+if ask_shape_a == "trapezium":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     top_length = input_checker("Top length: ")
     area = ((top_length + base) * height)/2
+    shape_history.append(area)
+
+all_history.append(shape_history)
+
 # don't need area=0 bc not adding onto previous numbers
 print("Area: {:.2f}".format(area))
+
+# take away sys.exit bc don't need xxx anymore since it asks a certain amount of times and leave the y/n thing for asking
+# if they want another shape, or should i keep looping and ask for the next shape, allow xxx to stop
+# do dictionary for formulas
