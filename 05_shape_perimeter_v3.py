@@ -1,4 +1,3 @@
-import sys
 # Some parameters assigned by default if not assigned in the function (keyword arguments, e.g. num_ok=True means if you don't assign a value to num_ok, it will just be True automatically)
 
 # Args:
@@ -20,13 +19,9 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
             # Check if number is valid measurement (positive)
             try:
                 response = input(question).lower()
-                if response == "xxx":
-                    sys.exit()
-                else:
-                    # If answer is not xxx, that means it is a number, or other characters
-                    # If it's a number need to convert string number to float number
-                    # If it's another character, trying to convert to float will fail and error out
-                    response = float(response)
+                # If it's a number need to convert string number to float number
+                # If it's another character, trying to convert to float will fail and error out
+                response = float(response)
                 # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
                 if response <= 0:
                     print(error)
@@ -34,8 +29,8 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
                     return response
 
             except ValueError:
-                # Typing a non-number answers goes here, not including 'xxx'
-                print("Please print 'xxx' to exit or a number above zero!")
+                # Typing a non-number answers goes here
+                print(error)
                 # After this line it just exits because of the "Error"
 
         else: # ** it goes to this since it can't have numbers and num_ok=false
@@ -62,21 +57,19 @@ pi= 3.14159265
 # all_lengths includes every shapes' dimensions
 all_history = []
 
+# ask user what shape they need to find the perimeter for
+print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+
 loop = True
 while loop:
     # shapes_lengths is the list for the individual shape's lengths added
     shape_history = []
-    # ask user what shape they need to find the area and/or perimeter for
-    print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
-    print()
-
     ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
                                error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
 
     # append shape name to the history
     shape_history.append(ask_shape_p)
 
-    # !!!!!!!!! what if they have a square which have the same measurements on all sides, would they put the 4 lengths repeated or just once?
     if ask_shape_p == "circle":
         r = input_checker("Radius: ")
         perimeter = 2*pi*r
@@ -101,14 +94,14 @@ while loop:
     all_history.append(shape_history)
     # gotta reset to [] when you start to add for a new shape when you make it ask multiple shapes in a while loop later
 
-    rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
     print()
-    if rerun == "n" or rerun == "no":
+    rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
+    print()
+    if rerun == "n":
         loop = False
 
 for item in all_history:
     print("{}: {:.2f}".format(item[0], item[1]))
-# !!!!!!!!! does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
-
-
 # make perimeter and area functionnnnnn
+
+    area          = ""

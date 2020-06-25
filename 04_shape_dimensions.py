@@ -20,13 +20,9 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
             # Check if number is valid measurement (positive)
             try:
                 response = input(question).lower()
-                if response == "xxx":
-                    sys.exit()
-                else:
-                    # If answer is not xxx, that means it is a number, or other characters
-                    # If it's a number need to convert string number to float number
-                    # If it's another character, trying to convert to float will fail and error out
-                    response = float(response)
+                # If it's a number need to convert string number to float number
+                # If it's another character, trying to convert to float will fail and error out
+                response = float(response)
                 # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
                 if response <= 0:
                     print(error)
@@ -34,8 +30,8 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
                     return response
 
             except ValueError:
-                # Typing a non-number answers goes here, not including 'xxx'
-                print("Please print 'xxx' to exit or a number above zero!")
+                # Typing a non-number answers goes here
+                print(error)
                 # After this line it just exits because of the "Error"
 
         else: # ** it goes to this since it can't have numbers and num_ok=false
@@ -50,6 +46,16 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # shapes_lengths is the list for the individual shape's lengths added
 shapes_lengths = []
 shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
+# num_lengths is number next to these shapes, amount of times to ask for length
+shapes_list = {"circle": 1,
+               "square": 4,
+               "rectangle": 4,
+               "triangle": 3,
+               "trapezium": 4,
+               "parallelogram": 4}
+
+# dimensions to calculate the perimeter
+print("Enter the measurements (make sure they're in the same unit but don't include them) for your shape.")
 
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
@@ -59,41 +65,48 @@ ask_shape_a = input_checker("What shape would you like to find the area for? ",
                             error_msg="Please choose one of the shapes from the list!", num_ok=False,
                             checklist=shapes_list)
 
+if ask_shape_a == "circle":
+    # radius used for both area/perimeter
+    r = input_checker("Radius: ")
+    # print differently, not blank as int and num check as float, make all answers nicely as one of these types
+    shapes_lengths.append(r)
+
+if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "triangle" or ask_shape_a == "parallelogram":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    shapes_lengths.append(base)
+    shapes_lengths.append(height)
+
+if ask_shape_a == "trapezium":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    top_length = input_checker("Top length: ")
+    shapes_lengths.append(base)
+    shapes_lengths.append(height)
+    shapes_lengths.append(top_length)
+
 ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
                             error_msg="Please choose one of the shapes from the list!", num_ok=False,
                             checklist=shapes_list)
 
-# dimensions to calculate the perimeter
-print("Please enter the measurements (make sure they're in the same unit but don't include them) for your shape.")
+if ask_shape_p == "circle":
+    # radius used for both area/perimeter
+    r = input_checker("Radius: ")
+    # print differently, not blank as int and num check as float, make all answers nicely as one of these types
+    shapes_lengths.append(r)
 
-loop = True
-while loop:
-    if ask_shape_a or ask_shape_p == "circle":
-        # radius used for both area/perimeter
-        r = input_checker("Radius: ")
-        # print differently, not blank as int and num check as float, make all answers nicely as one of these types
-        shapes_lengths.append(r)
-        print(shapes_lengths)
+if ask_shape_p != "circle":
+    num_lengths = shapes_list[ask_shape_p]
+    # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
 
-    if ask_shape_p != "circle":
-        length = ""
-        while length != "xxx":
-            length = input_checker("Length: ")
-            # !!!!!!! all_lengths is for the history list, do i need to add different variable for when i add the lengths of area dimensions??????????
-            # bc all_lengths would have ALL the lengths which some are repeated
-            shapes_lengths.append(length)
+    # initialise counter outside the for loop
+    perimeter = 0
+    for i in range(num_lengths):
+        # length is for each side of the shape
+        length = input_checker("Length {}: ".format(i+1))
+        # !!!!!!! all_lengths is for the history list, do i need to add different variable for when i add the lengths of area dimensions??????????
+        # bc all_lengths would have ALL the lengths which some are repeated
+        shapes_lengths.append(length)
 
-    if ask_shape_a != "circle":
-        base = input_checker("Base: ")
-        height = input_checker("Height: ")
-        top_length = input_checker("Top length: ")
-
-        # put in the lists for printing for history
-        shapes_lengths.append(base)
-        shapes_lengths.append(height)
-        shapes_lengths.append(top_length)
-
-    print(shapes_lengths)
-    # swap ask_PA and shape dimensions, and renumber to add the 3 as a component
-
+print(("Measurements: {}").format(shapes_lengths))
 

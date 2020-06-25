@@ -15,15 +15,23 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
         error = error_msg # otherwise prints out the error msg in the function arguments
 
     while True: # for the whole thing, not the same as num_ok=True
-        if num_ok: # since it's set to true, it will do this bc it allows numbers otherwise, **
+        if num_ok: # since it's set to true, it will do this bc it allows numbers otherwise,
             # Check if number is valid measurement (positive)
-            response = float(input(question))
+            try:
+                response = input(question).lower()
+                # If it's a number need to convert string number to float number
+                # If it's another character, trying to convert to float will fail and error out
+                response = float(response)
+                # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
+                if response <= 0:
+                    print(error)
+                else:
+                    return response
 
-            # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
-            if response <= 0:
+            except ValueError:
+                # Typing a non-number answers goes here
                 print(error)
-            else:
-                return response
+                # After this line it just exits because of the "Error"
 
         else: # ** it goes to this since it can't have numbers and num_ok=false
             # Check if answer is in list

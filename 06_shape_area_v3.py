@@ -20,13 +20,9 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
             # Check if number is valid measurement (positive)
             try:
                 response = input(question).lower()
-                if response == "xxx":
-                    sys.exit()
-                else:
-                    # If answer is not xxx, that means it is a number, or other characters
-                    # If it's a number need to convert string number to float number
-                    # If it's another character, trying to convert to float will fail and error out
-                    response = float(response)
+                # If it's a number need to convert string number to float number
+                # If it's another character, trying to convert to float will fail and error out
+                response = float(response)
                 # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
                 if response <= 0:
                     print(error)
@@ -34,8 +30,8 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
                     return response
 
             except ValueError:
-                # Typing a non-number answers goes here, not including 'xxx'
-                print("Please print 'xxx' to exit or a number above zero!")
+                # Typing a non-number answers goes here
+                print(error)
                 # After this line it just exits because of the "Error"
 
         else: # ** it goes to this since it can't have numbers and num_ok=false
@@ -53,54 +49,55 @@ shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parall
 all_history = []
 pi= 3.14159265
 
-
-# shapes_lengths is the list for the individual shape's lengths added
-shape_history = []
-
-# ask user what shape they need to find the area and/or perimeter for
+# ask user what shape they need to find the area for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
 
-ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
-                           error_msg="Please choose one of the shapes from the list!", num_ok=False)
+loop = True
+while loop:
+    # shapes_lengths is the list for the individual shape's lengths added
+    shape_history = []
+    ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
+                               error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
-# append shape name to the history
-shape_history.append(ask_shape_a)
+    # append shape name to the history
+    shape_history.append(ask_shape_a)
 
-if ask_shape_a == "circle":
-    r = input_checker("Radius: ")
-    area = pi*(r**2)
-    shape_history.append(area)
+    if ask_shape_a == "circle":
+        r = input_checker("Radius: ")
+        area = pi*(r**2)
+        shape_history.append(area)
 
-if ask_shape_a == "rectangle" or ask_shape_a == "parallelogram":
-    base = input_checker("Base: ")
-    height = input_checker("Height: ")
-    area = base * height
-    shape_history.append(area)
+    if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "parallelogram":
+        base = input_checker("Base: ")
+        height = input_checker("Height: ")
+        area = base * height
+        shape_history.append(area)
 
-if ask_shape_a == "square":
-    side = input_checker("Side: ")
-    area = side**2
-    shape_history.append(area)
+    if ask_shape_a == "triangle":
+        base = input_checker("Base: ")
+        height = input_checker("Height: ")
+        area = (base * height)/2
+        shape_history.append(area)
 
-# asks the base and height twice and only takes the last two responses into calculation
-if ask_shape_a == "triangle":
-    base = input_checker("Base: ")
-    height = input_checker("Height: ")
-    area = (base * height)/2
-    shape_history.append(area)
+    if ask_shape_a == "trapezium":
+        base = input_checker("Base: ")
+        height = input_checker("Height: ")
+        top_length = input_checker("Top length: ")
+        area = ((top_length + base) * height)/2
+        shape_history.append(area)
 
-if ask_shape_a == "trapezium":
-    base = input_checker("Base: ")
-    height = input_checker("Height: ")
-    top_length = input_checker("Top length: ")
-    area = ((top_length + base) * height)/2
-    shape_history.append(area)
+    # don't need area=0 bc not adding onto previous numbers
+    print("Area: {:.2f}".format(area))
+    all_history.append(shape_history)
 
-all_history.append(shape_history)
 
-# don't need area=0 bc not adding onto previous numbers
-print("Area: {:.2f}".format(area))
+    rerun = input_checker("Would you like to calculate the area for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
+    print()
+    if rerun == "n":
+        loop = False
 
-# take away sys.exit bc don't need xxx anymore since it asks a certain amount of times and leave the y/n thing for asking
-# if they want another shape, or should i keep looping and ask for the next shape, allow xxx to stop
-# do dictionary for formulas
+for item in all_history:
+    print("{}: {:.2f}".format(item[0], item[1]))
+
+    # do dictionary for formulas
+# mention that it's rounded to 2sf
