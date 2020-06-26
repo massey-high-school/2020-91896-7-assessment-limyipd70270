@@ -8,20 +8,14 @@ shapes_list = {"circle": 1,
 
 pi= 3.14159265
 
-# PERIMETER
-shape_perimeter = {
-  "circle" : circle,
-  "rectangle" : rectangle,
-  "square" : square
-  "parallelogram" : parallelogram,
-  "triangle" : triangle,
-  "trapezium" : trapezium
+shape_perimeters = {
+  "circle" : 2*pi*r,
+  "rectangle" : perimeter += length
+  "square" : perimeter += length
+  "parallelogram" : perimeter += length
+  "triangle" : perimeter += length
+  "trapezium" : perimeter += length
 }
-circle = {
-  "r" : "input_checker("Radius: ")",
-  "perimeter" : "2*pi*r"
-}
-
 
 != "circle":
     num_lengths = shapes_list[ask_shape_p]
@@ -34,37 +28,13 @@ circle = {
         length = input_checker("Length {}: ".format(i+1))
         perimeter += length
 
-# AREA
-
-shape_area = {
-  "circle" : circle,
-  "rectangle" : rectangle,
-  "square" : square
-  "parallelogram" : parallelogram,
-  "triangle" : triangle,
-  "trapezium" : trapezium
+shape_areas = {
+    "circle": pi*(r**2),
+    "rectangle": base * height,
+    "square": base * height,
+    "parallelogram": base * height,
+    "triangle": (base * height)/2,
+    "trapezium": ((top_length + base) * height)/2
 }
 
-circle = {
-  "r" : "input_checker("Radius: ")",
-  "area" : "pi*(r**2)"
-}
-
-rectangle, square, parallelogram = {
-  "base" : "input_checker("Base: ")",
-  "height" : "input_checker("Height: ")"
-  "area" : "base * height"
-}
-
-triangle = {
-  "base" : "input_checker("Base: ")",
-  "height" : "input_checker("Height: ")"
-  "area" : "(base * height)/2"
-}
-
-trapezium = {
-  "base" : "input_checker("Base: ")",
-  "height" : "input_checker("Height: ")",
-  "top_length" : "input_checker("Top length: ")"
-  "area" : "((top_length + base) * height)/2"
-}
+shape_history.append(area)
