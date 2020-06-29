@@ -42,34 +42,29 @@ shapes_list = {"circle": 1,
                "triangle": 3,
                "trapezium": 4,
                "parallelogram": 4}
-
+all_history = []
 pi= 3.14159265
 
-loop = True
-while loop:
-    # shapes_lengths is the list for the individual shape's lengths added
-    shape_history = []
-    ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
-                               error_msg="Please choose one of the shapes from the list!", num_ok=False)
+# shapes_lengths is the list for the individual shape's lengths added
+shape_history = []
+ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
+                           error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
-    # append shape name to the history
-    shape_history.append(ask_shape_a)
+# append shape name to the history
+shape_history.append(ask_shape_a)
 
-    if ask_shape_a == "circle":
-        r = input_checker("Radius: ")
+if ask_shape_a == "circle":
+    r = input_checker("Radius: ")
 
-    if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "parallelogram":
-        base = input_checker("Base: ")
-        height = input_checker("Height: ")
+if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "parallelogram" or ask_shape_a == "triangle":
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
 
-    if ask_shape_a == "triangle":
-        base = input_checker("Base: ")
-        height = input_checker("Height: ")
-
-    if ask_shape_a == "trapezium":
-        base = input_checker("Base: ")
-        height = input_checker("Height: ")
-        top_length = input_checker("Top length: ")
+if ask_shape_a == "trapezium":
+    base = ""
+    base = input_checker("Base: ")
+    height = input_checker("Height: ")
+    top_length = input_checker("Top length: ")
 
 shape_areas = {
     "circle": pi * (r ** 2),
@@ -82,4 +77,5 @@ shape_areas = {
 
 # Get unit and change it to match dictionary.
 area = shape_areas.get(ask_shape_a)
-print("Perimeter: {:.2f}".format(area))
+print("Area: {:.2f}".format(area))
+all_history.append(shape_history)

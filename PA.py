@@ -57,14 +57,13 @@ shapes_list = {"circle": 1,
 pi= 3.14159265
 
 
-# ASK IF THEY WANT TO FIND PERIMETER/AREA/BOTH
-pab_list = ["p", "perimeter", "a", "area", "b", "both"]
-ask_pa = input_checker("Would you like to find the perimeter (P), area (A) or both (B)? ", checklist=pab_list, error_msg="Please enter 'P', 'A', or 'B'", num_ok=False)
+# ASK IF THEY WANT TO FIND PERIMETER
+ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
 
 # ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
 
-if ask_pa == "p":
+if ask_p == "y" or ask_p == "yes":
     loop = True
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
@@ -105,7 +104,12 @@ if ask_pa == "p":
         if rerun == "n":
             loop = False
 
-if ask_pa == "a":
+if ask_p == "n" or ask_p == "no":
+    loop = False
+
+ask_a = input_checker("Would you like to find the area? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
+
+if ask_a == "y" or ask_a == "yes":
     loop = True
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
@@ -150,7 +154,8 @@ if ask_pa == "a":
         if rerun == "n":
             loop = False
 
-
+if ask_a == "n" or ask_a == "yes":
+    loop = False
 
 history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
