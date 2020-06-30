@@ -47,14 +47,12 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # all_lengths includes every shapes' dimensions
 all_history = []
 
-history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
-print()
+history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ",
+                            checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
 history_ask = ""
-
 if history_ask != "n":
-    print(all_history)
-
-# If user enters no, break out of loop
-if history_ask == "n":
-
+    print("Areas:")
+    print("Perimeters:")
+    for item in all_history:
+        print("{}: {:.2f}".format(item[0], item[1]))

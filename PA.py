@@ -56,18 +56,19 @@ shapes_list = {"circle": 1,
 
 pi= 3.14159265
 
-
 # ASK IF THEY WANT TO FIND PERIMETER
 ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
-
-# ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
-print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
 
 if ask_p == "y" or ask_p == "yes":
     loop = True
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
         shape_history = []
+
+        # ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
+        print()
+        print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+
         ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
                                    error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
 
@@ -114,6 +115,11 @@ if ask_a == "y" or ask_a == "yes":
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
         shape_history = []
+
+        # ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
+        print()
+        print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+
         ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                                    error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
@@ -154,13 +160,16 @@ if ask_a == "y" or ask_a == "yes":
         if rerun == "n":
             loop = False
 
-if ask_a == "n" or ask_a == "yes":
+if ask_a == "n" or ask_a == "no":
     loop = False
+
 
 history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
 history_ask = ""
 if history_ask != "n":
+    print("Areas:")
+    print("Perimeters:")
     for item in all_history:
         print("{}: {:.2f}".format(item[0], item[1]))
 
@@ -168,3 +177,4 @@ if history_ask != "n":
 # do dictionary for formulas
 # mention that it's rounded to 2sf
 # make perimeter and area functionnnnnn
+# need to make separate histories bc it prints all history but doesnt say whether it's area or perimeter

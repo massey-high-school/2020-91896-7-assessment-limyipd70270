@@ -45,8 +45,18 @@ shapes_list = {"circle": 1,
 all_history = []
 pi= 3.14159265
 
+base = 0
+height = 0
+r = 0
+top_length = 0
+
 # shapes_lengths is the list for the individual shape's lengths added
 shape_history = []
+
+# ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
+print()
+print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+
 ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                            error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
@@ -61,7 +71,6 @@ if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "para
     height = input_checker("Height: ")
 
 if ask_shape_a == "trapezium":
-    base = ""
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     top_length = input_checker("Top length: ")
@@ -79,3 +88,5 @@ shape_areas = {
 area = shape_areas.get(ask_shape_a)
 print("Area: {:.2f}".format(area))
 all_history.append(shape_history)
+
+# use for version control bc it goes through everything in dictionary so go
