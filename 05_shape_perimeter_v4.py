@@ -44,12 +44,13 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 
 # *** Main Routine starts here ***
 # num_lengths is number next to these shapes, amount of times to ask for length
-shapes_list = {"circle": 1,
-               "square": 4,
-               "rectangle": 4,
-               "triangle": 3,
-               "trapezium": 4,
-               "parallelogram": 4}
+shapes_list = {"circle" or "c": 1,
+               "triangle" or "t": 3,
+               "trapezium" or "z": 4}
+
+bh_list = {"square" or "s": 4,
+           "rectangle" or "r": 4,
+           "parallelogram" or "p": 4}
 
 pi= 3.14159265
 
@@ -58,29 +59,28 @@ pi= 3.14159265
 all_history = []
 
 # ask user what shape they need to find the perimeter for
-print()
-print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
 
 loop = True
 while loop:
     # shapes_lengths is the list for the individual shape's lengths added
     shape_history = []
     ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
-                               error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
+                               error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list or bh_list)
 
     # append shape name to the history
     shape_history.append(ask_shape_p)
 
-    if ask_shape_p == "circle":
+    if ask_shape_p == "circle" or ask_shape_p == "c":
         r = input_checker("Radius: ")
         perimeter = 2*pi*r
         shape_history.append(perimeter)
 
-    if ask_shape_p != "circle":
+    if ask_shape_p != "circle" or ask_shape_p != "c":
         print()
         print("Please enter the lengths (don't need to include the unit of measurement) for your shape, pressing 'enter' after each one.")
 
-        num_lengths = shapes_list[ask_shape_p]
+        num_lengths = shapes_list or bh_list[ask_shape_p]
         # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
 
         # initialise counter outside the for loop
@@ -104,23 +104,3 @@ while loop:
 for item in all_history:
     print("{}: {:.2f}".format(item[0], item[1]))
 # make perimeter and area functionnnnnn
-
-shape_perimeters = {
-  "circle" : 2*pi*r,
-  "rectangle" : perimeter += length
-  "square" : perimeter += length
-  "parallelogram" : perimeter += length
-  "triangle" : perimeter += length
-  "trapezium" : perimeter += length
-}
-
-!= "circle":
-    num_lengths = shapes_list[ask_shape_p]
-    # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
-
-    # initialise counter outside the for loop
-    perimeter = 0
-    for i in range(num_lengths):
-        # length is for each side of the shape
-        length = input_checker("Length {}: ".format(i+1))
-        perimeter += length

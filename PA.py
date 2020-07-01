@@ -174,7 +174,5 @@ if history_ask != "n":
         print("{}: {:.2f}".format(item[0], item[1]))
 
 
-# do dictionary for formulas
 # mention that it's rounded to 2sf
-# make perimeter and area functionnnnnn
 # need to make separate histories bc it prints all history but doesnt say whether it's area or perimeter
