@@ -44,7 +44,7 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 
 # *** Main Routine starts here ***
 # Variables
-shapes_list = {"circle" or "c": 1,
+shapes_list = {"circle" or "c": 1, 
                "triangle" or "t": 3,
                "trapezium" or "z": 4}
 
@@ -62,7 +62,7 @@ loop = True
 while loop:
     # shapes_lengths is the list for the individual shape's lengths added
     shape_history = []
-    ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list or bh_list,
+    ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                                error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
     # append shape name to the history
@@ -73,7 +73,7 @@ while loop:
         area = pi*(r**2)
         shape_history.append(area)
 
-    if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "parallelogram":
+    if ask_shape_a == "rectangle" or ask_shape_a == "r" or ask_shape_a == "square" or ask_shape_a == "s" or ask_shape_a == "parallelogram" or ask_shape_a == "p":
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         area = base * height
