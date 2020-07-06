@@ -97,7 +97,6 @@ while loop:
 
     print("Perimeter: {:.2f}".format(perimeter))
     all_history.append(shape_history)
-    # gotta reset to [] when you start to add for a new shape when you make it ask multiple shapes in a while loop later
 
     print()
     rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)

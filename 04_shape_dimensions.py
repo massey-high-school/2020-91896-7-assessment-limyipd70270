@@ -65,9 +65,7 @@ ask_shape_a = input_checker("What shape would you like to find the area for? ",
                             checklist=shapes_list)
 
 if ask_shape_a == "circle":
-    # radius used for both area/perimeter
     r = input_checker("Radius: ")
-    # print differently, not blank as int and num check as float, make all answers nicely as one of these types
     shapes_lengths.append(r)
 
 elif ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "triangle" or ask_shape_a == "parallelogram":
@@ -89,9 +87,7 @@ ask_shape_p = input_checker("What shape would you like to find the perimeter for
                             checklist=shapes_list)
 
 if ask_shape_p == "circle":
-    # radius used for both area/perimeter
     r = input_checker("Radius: ")
-    # print differently, not blank as int and num check as float, make all answers nicely as one of these types
     shapes_lengths.append(r)
 
 elif ask_shape_p != "circle":
