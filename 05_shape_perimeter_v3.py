@@ -45,12 +45,17 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # *** Main Routine starts here ***
 # num_lengths is number next to these shapes, amount of times to ask for length
 shapes_list = {"circle": 1,
+               "c": 1,
                "square": 4,
+               "s": 4,
                "rectangle": 4,
+               "r": 4,
                "triangle": 3,
+               "t": 3,
                "trapezium": 4,
-               "parallelogram": 4}
-
+               "z": 4,
+               "parallelogram": 4,
+               "p": 4}
 pi= 3.14159265
 
 # Initialise lists
@@ -64,18 +69,18 @@ loop = True
 while loop:
     # shapes_lengths is the list for the individual shape's lengths added
     shape_history = []
-    ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
-                               error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
+    ask_shape_p = input_checker("What shape would you like to find the perimeter for? ", checklist=shapes_list,
+                               error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
     # append shape name to the history
     shape_history.append(ask_shape_p)
 
-    if ask_shape_p == "circle":
+    if ask_shape_p == "circle" or ask_shape_p == "c":
         r = input_checker("Radius: ")
         perimeter = 2*pi*r
         shape_history.append(perimeter)
 
-    if ask_shape_p != "circle":
+    elif ask_shape_p != "circle" or ask_shape_p != "c":
         print()
         print("Please enter the lengths (don't need to include the unit of measurement) for your shape, pressing 'enter' after each one.")
 

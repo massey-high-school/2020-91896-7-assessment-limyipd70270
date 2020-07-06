@@ -1,4 +1,3 @@
-import sys
 # Some parameters assigned by default if not assigned in the function (keyword arguments, e.g. num_ok=True means if you don't assign a value to num_ok, it will just be True automatically)
 
 # Args:
@@ -71,13 +70,13 @@ if ask_shape_a == "circle":
     # print differently, not blank as int and num check as float, make all answers nicely as one of these types
     shapes_lengths.append(r)
 
-if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "triangle" or ask_shape_a == "parallelogram":
+elif ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "triangle" or ask_shape_a == "parallelogram":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     shapes_lengths.append(base)
     shapes_lengths.append(height)
 
-if ask_shape_a == "trapezium":
+elif ask_shape_a == "trapezium":
     base = input_checker("Base: ")
     height = input_checker("Height: ")
     top_length = input_checker("Top length: ")
@@ -95,7 +94,7 @@ if ask_shape_p == "circle":
     # print differently, not blank as int and num check as float, make all answers nicely as one of these types
     shapes_lengths.append(r)
 
-if ask_shape_p != "circle":
+elif ask_shape_p != "circle":
     num_lengths = shapes_list[ask_shape_p]
     # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
 
@@ -104,8 +103,6 @@ if ask_shape_p != "circle":
     for i in range(num_lengths):
         # length is for each side of the shape
         length = input_checker("Length {}: ".format(i+1))
-        # !!!!!!! all_lengths is for the history list, do i need to add different variable for when i add the lengths of area dimensions??????????
-        # bc all_lengths would have ALL the lengths which some are repeated
         shapes_lengths.append(length)
 
 print(("Measurements: {}").format(shapes_lengths))
