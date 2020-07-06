@@ -44,13 +44,20 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 
 # *** Main Routine starts here ***
 # Variables
-shapes_list = {"circle" or "c": 1, 
-               "triangle" or "t": 3,
-               "trapezium" or "z": 4}
+shapes_list = {"circle": 1,
+               "c": 1,
+               "square": 4,
+               "s": 4,
+               "rectangle": 4,
+               "r": 4,
+               "triangle": 3,
+               "t": 3,
+               "trapezium": 4,
+               "z": 4,
+               "parallelogram": 4,
+               "p": 4}
 
-bh_list = {"square" or "s": 4,
-           "rectangle" or "r": 4,
-           "parallelogram" or "p": 4}
+bh_list = ["rectangle", "r", "square", "s", "parallelogram", "p"]
 
 all_history = []
 pi= 3.14159265
@@ -73,19 +80,19 @@ while loop:
         area = pi*(r**2)
         shape_history.append(area)
 
-    if ask_shape_a == "rectangle" or ask_shape_a == "r" or ask_shape_a == "square" or ask_shape_a == "s" or ask_shape_a == "parallelogram" or ask_shape_a == "p":
+    elif ask_shape_a in bh_list:
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         area = base * height
         shape_history.append(area)
 
-    if ask_shape_a == "triangle":
+    elif ask_shape_a == "triangle" or ask_shape_a == "t":
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         area = (base * height)/2
         shape_history.append(area)
 
-    if ask_shape_a == "trapezium":
+    elif ask_shape_a == "trapezium" or ask_shape_a == "z":
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         top_length = input_checker("Top length: ")
@@ -104,6 +111,3 @@ while loop:
 
 for item in all_history:
     print("{}: {:.2f}".format(item[0], item[1]))
-
-    # do dictionary for formulas
-# mention that it's rounded to 2sf

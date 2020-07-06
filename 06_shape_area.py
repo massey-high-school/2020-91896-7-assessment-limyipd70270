@@ -30,18 +30,13 @@ def string_checker(question, error_msg, num_ok, to_check):
 
 # *** Main Routine starts here ***
 
-shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium, parallelogram"]
+shapes_list = ["circle", "square", "rectangle", "triangle", "trapezium", "parallelogram"]
 pi= 3.14159265
 
 # Initialise lists
 # shapes_lengths is the list for the individual shape's lengths added
 all_lengths = []
 shapes_lengths = []
-
-r = 2
-base = 2
-height = 3
-top_length = 4
 
 # ask user what shape they need to find the area and/or perimeter for
 print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram")
@@ -51,24 +46,23 @@ ask_shape = string_checker("What shape would you like to find the area and/or pe
                            "Please choose one of the shapes from the list!", "no", shapes_list)
 
 if ask_shape == "circle":
-    area = 0
+    r = num_check("Radius: ")
     area = pi*(r**2)
 
-# parallelogram doesn't work???
-if ask_shape == "square" or "rectangle" or "parallelogram":
-    area = 0
+elif ask_shape == "square" or ask_shape == "rectangle" or ask_shape == "parallelogram":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
     area = base * height
 
-if ask_shape == "triangle":
-    area = 0
+elif ask_shape == "triangle":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
     area = (base * height)/2
 
-# trapezium doesn't work????
-if ask_shape == "trapezium":
-    area = 0
+elif ask_shape == "trapezium":
+    base = num_check("Base: ")
+    height = num_check("Height: ")
+    top_length = num_check("Top length: ")
     area = ((top_length + base) * height)/2
 
 print("Area: {:.2f}".format(area))
-
-
-

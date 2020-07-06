@@ -45,8 +45,6 @@ print()
 
 ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ",
                            "Please choose one of the shapes from the list!", "no", shapes_list)
-
-# !!!!!!!!!!!!! does it matter that there's no limit to lengths entered even if shape doesn't have that many lengths, e.g. 3 entered for square or 2 entered for circle
 if ask_shape == "circle":
     r = num_check("Radius: ")
     perimeter = 0

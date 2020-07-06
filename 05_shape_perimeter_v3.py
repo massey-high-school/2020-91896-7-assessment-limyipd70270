@@ -58,7 +58,7 @@ pi= 3.14159265
 all_history = []
 
 # ask user what shape they need to find the perimeter for
-print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
 
 loop = True
 while loop:
@@ -102,4 +102,3 @@ while loop:
 
 for item in all_history:
     print("{}: {:.2f}".format(item[0], item[1]))
-# make perimeter and area functionnnnnn

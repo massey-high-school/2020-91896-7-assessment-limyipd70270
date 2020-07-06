@@ -69,7 +69,7 @@ print()
 
 ask_shape = string_checker("What shape would you like to find the area and/or perimeter for? ",
                            "Please choose one of the shapes from the list!", "no", shapes_list)
-# !!!!!!!!! what if they have a square which have the same measurements on all sides, would they put the 4 lengths repeated or just once?
+
 if ask_shape == "circle":
     r = num_check("Radius: ")
     perimeter = 0

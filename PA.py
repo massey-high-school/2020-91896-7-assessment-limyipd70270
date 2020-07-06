@@ -48,11 +48,18 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 all_history = []
 # num_lengths is number next to these shapes, amount of times to ask for length
 shapes_list = {"circle": 1,
+               "c": 1,
                "square": 4,
+               "s": 4,
                "rectangle": 4,
+               "r": 4,
                "triangle": 3,
+               "t": 3,
                "trapezium": 4,
-               "parallelogram": 4}
+               "z": 4,
+               "parallelogram": 4,
+               "p": 4}
+
 
 pi= 3.14159265
 
@@ -105,8 +112,10 @@ if ask_p == "y" or ask_p == "yes":
         if rerun == "n":
             loop = False
 
-if ask_p == "n" or ask_p == "no":
+else:
     loop = False
+
+bh_list = ["rectangle", "r", "square", "s", "parallelogram", "p"]
 
 ask_a = input_checker("Would you like to find the area? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
 
@@ -116,9 +125,8 @@ if ask_a == "y" or ask_a == "yes":
         # shapes_lengths is the list for the individual shape's lengths added
         shape_history = []
 
-        # ASK USER WHAT SHAPE THEY NEED TO FIND THE AREA/PERIMETER FOR
-        print()
-        print("Please choose from the following: \ncircle, square, rectangle, triangle, trapezium, parallelogram\n")
+        # ask user what shape they need to find the area for
+        print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
 
         ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                                    error_msg="Please choose one of the shapes from the list!", num_ok=False)
@@ -126,24 +134,24 @@ if ask_a == "y" or ask_a == "yes":
         # append shape name to the history
         shape_history.append(ask_shape_a)
 
-        if ask_shape_a == "circle":
+        if ask_shape_a == "circle" or ask_shape_a == "c":
             r = input_checker("Radius: ")
             area = pi*(r**2)
             shape_history.append(area)
 
-        if ask_shape_a == "rectangle" or ask_shape_a == "square" or ask_shape_a == "parallelogram":
+        elif ask_shape_a in bh_list:
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             area = base * height
             shape_history.append(area)
 
-        if ask_shape_a == "triangle":
+        elif ask_shape_a == "triangle" or ask_shape_a == "t":
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             area = (base * height)/2
             shape_history.append(area)
 
-        if ask_shape_a == "trapezium":
+        elif ask_shape_a == "trapezium" or ask_shape_a == "z":
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             top_length = input_checker("Top length: ")
@@ -160,7 +168,7 @@ if ask_a == "y" or ask_a == "yes":
         if rerun == "n":
             loop = False
 
-if ask_a == "n" or ask_a == "no":
+else:
     loop = False
 
 
