@@ -45,8 +45,8 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # *** Main Routine starts here ***
 
 # ask user if they want to find the perimeter
-ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
+ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
 # ask user if they want to find the perimeter
-ask_a = input_checker("Would you like to find the area? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
+ask_a = input_checker("Would you like to find the area? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
