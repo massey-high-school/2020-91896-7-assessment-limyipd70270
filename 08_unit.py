@@ -54,10 +54,12 @@ m = ["m", "meters", "metres"]
 km = ["km", "kilometers", "kilometres"]
 
 if unit in mm:
-    print ("mm")
-if unit in cm:
-    print ("cm")
-if unit in m:
-    print ("m")
-if unit in km:
-    print ("km")
+    unit = "mm"
+elif unit in cm:
+    unit = "cm"
+elif unit in m:
+    unit = "m"
+elif unit in km:
+    unit = "km"
+
+print (unit)

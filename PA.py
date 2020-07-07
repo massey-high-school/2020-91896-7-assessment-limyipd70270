@@ -67,6 +67,10 @@ m = ["m", "meters", "metres"]
 km = ["km", "kilometers", "kilometres"]
 pi= 3.14159265
 
+
+# ask user what shape they need to find the perimeter for
+print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
+
 # ASK IF THEY WANT TO FIND PERIMETER
 ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=["y", "n", "yes", "no"], error_msg="Please enter Y or N", num_ok=False)
 
@@ -76,16 +80,36 @@ if ask_p == "y" or ask_p == "yes":
         # shapes_lengths is the list for the individual shape's lengths added
         shape_history = []
 
-        # ask user what shape they need to find the perimeter for
-        print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
-
         ask_shape_p = input_checker("What shape would you like to find the perimeter for? ",
                                    error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
+
+        if ask_shape_p == "c":
+            ask_shape_p = "circle"
+        elif ask_shape_p == "s":
+            ask_shape_p = "square"
+        elif ask_shape_p == "r":
+            ask_shape_p = "rectangle"
+        elif ask_shape_p == "t":
+            ask_shape_p = "triangle"
+        elif ask_shape_p == "z":
+            ask_shape_p = "trapezium"
+        elif ask_shape_p == "p":
+            ask_shape_p = "parallelogram"
 
         # append shape name to the history
         shape_history.append(ask_shape_p)
 
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
+
+        if unit in mm:
+            unit = "mm"
+        elif unit in cm:
+            unit = "cm"
+        elif unit in m:
+            unit = "m"
+        elif unit in km:
+            unit = "km"
+        shape_history.append(unit)
 
         if ask_shape_p == "circle" or ask_shape_p == "c":
             r = input_checker("Radius: ")
@@ -106,14 +130,7 @@ if ask_p == "y" or ask_p == "yes":
                 length = input_checker("Length {}: ".format(i+1))
                 perimeter += length
             shape_history.append(perimeter)
-        if unit in mm:
-            print ("mm")
-        if unit in cm:
-            print ("cm")
-        if unit in m:
-            print ("m")
-        if unit in km:
-            print ("km")
+
         print("Perimeter: {:.2f}{}".format(perimeter, unit))
         all_history.append(shape_history)
         #!!!!!!!!!!!!!!!!! gotta reset to [] when you start to add for a new shape when you make it ask multiple shapes in a while loop later
@@ -137,11 +154,21 @@ if ask_a == "y" or ask_a == "yes":
         # shapes_lengths is the list for the individual shape's lengths added
         shape_history = []
 
-        # ask user what shape they need to find the area for
-        print("Please choose from the following: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n")
-
         ask_shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list,
                                    error_msg="Please choose one of the shapes from the list!", num_ok=False)
+
+        if ask_shape_a == "c":
+            ask_shape_a = "circle"
+        elif ask_shape_a == "s":
+            ask_shape_a = "square"
+        elif ask_shape_a == "r":
+            ask_shape_a = "rectangle"
+        elif ask_shape_a == "t":
+            ask_shape_a = "triangle"
+        elif ask_shape_a == "z":
+            ask_shape_a = "trapezium"
+        elif ask_shape_a == "p":
+            ask_shape_a = "parallelogram"
 
         # append shape name to the history
         shape_history.append(ask_shape_a)
@@ -149,13 +176,14 @@ if ask_a == "y" or ask_a == "yes":
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
 
         if unit in mm:
-            print ("mm")
-        if unit in cm:
-            print ("cm")
-        if unit in m:
-            print ("m")
-        if unit in km:
-            print ("km")
+            unit = "mm"
+        elif unit in cm:
+            unit = "cm"
+        elif unit in m:
+            unit = "m"
+        elif unit in km:
+            unit = "km"
+        shape_history.append(unit)
 
 
         if ask_shape_a == "circle" or ask_shape_a == "c":
@@ -186,7 +214,6 @@ if ask_a == "y" or ask_a == "yes":
         print("Area: {:.2f}{}".format(area, unit))
         all_history.append(shape_history)
 
-
         rerun = input_checker("Would you like to calculate the area for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
         print()
         if rerun == "n":
@@ -195,16 +222,18 @@ if ask_a == "y" or ask_a == "yes":
 else:
     loop = False
 
-history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
+history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"],
+                            error_msg="Please enter Y or N", num_ok=False)
 
 history_ask = ""
 if history_ask != "n":
-    print("Areas:")
-    print("Perimeters:")
     for item in all_history:
-        print("{}: {:.2f}".format(item[0], item[1]))
+        print("{}: {:.2f}{}".format(item[0], item[2], item[1]))
 
 
-# mention that it's rounded to 2sf, Make sure to tell them that their measurements have to be in the same units, 2dp and blank test
+# do for usability, had to change the history lists bc prints both and u dont know which measurements are for which
+
+# mention that it's rounded to 2sf, Make sure to tell them that their measurements have to be in the same units, blank test
 # make so they can enter what unit it is
 # need to make separate histories bc it prints all history but doesnt say whether it's area or perimeter
+# what is shape history, is it needed bc it keeps all the info for each shape 'together'
