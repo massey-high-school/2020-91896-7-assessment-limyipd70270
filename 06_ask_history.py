@@ -50,13 +50,6 @@ all_history = []
 history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ",
                             checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
-history_ask = ""
-if history_ask != "n":
-    print("Areas:")
-    print("Perimeters:")
-    for item in all_history:
-        print("{}: {:.2f}".format(item[0], item[1]))
-
 history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 if history_ask != "n":
     for item in all_history:

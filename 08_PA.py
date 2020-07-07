@@ -45,10 +45,11 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 # *** Main Routine starts here ***
 # Initialise lists
 # all_lengths includes every shapes' dimensions
-all_history = []
+all_p_history = []
+all_a_history = []
+
 # num_lengths is number next to these shapes, amount of times to ask for length
-shapes_list = {"circle": 1, "c": 1, "square": 4, "s": 4, "rectangle": 4, "r": 4,
-               "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 4, "p": 4}
+shapes_list = {"circle": 1, "c": 1, "square": 4, "s": 4, "rectangle": 4, "r": 4, "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 4, "p": 4}
 
 units_list = ["mm", "millimeters", "millimetres", "cm", "centimeters", "centimetres", "m", "meters", "metres", "km", "kilometers", "kilometres"]
 mm = ["mm", "millimeters", "millimetres"]
@@ -65,7 +66,7 @@ if ask_p == "y":
     loop = True
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
-        shape_history = []
+        shape_p_hist = []
         shape_p = input_checker("What shape would you like to find the perimeter for? ", error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
 
         if shape_p == "c":
@@ -80,7 +81,7 @@ if ask_p == "y":
             shape_p = "trapezium"
         elif shape_p == "p":
             shape_p = "parallelogram"
-        shape_history.append(shape_p)
+        shape_p_hist.append(shape_p)
 
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
 
@@ -92,15 +93,15 @@ if ask_p == "y":
             unit = "m"
         elif unit in km:
             unit = "km"
-        shape_history.append(unit)
+        shape_p_hist.append(unit)
 
         if shape_p == "circle" or shape_p == "c":
             r = input_checker("Radius: ")
             perimeter = 2*pi*r
-            shape_history.append(perimeter)
+            shape_p_hist.append(perimeter)
 
         elif shape_p != "circle" or shape_p != "c":
-            print("\nPlease enter the lengths (don't need to include the unit of measurement) for your shape, pressing 'enter' after each one.")
+            print("\nPlease enter the lengths for your shape, pressing 'enter' after each one.")
 
             num_lengths = shapes_list[shape_p]
             # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
@@ -110,10 +111,10 @@ if ask_p == "y":
                 # length is for each side of the shape
                 length = input_checker("Length {}: ".format(i+1))
                 perimeter += length
-            shape_history.append(perimeter)
+            shape_p_hist.append(perimeter)
 
         print("Perimeter: {:.2f}{}".format(perimeter, unit))
-        all_history.append(shape_history)
+        all_p_history.append(shape_p_hist)
         #!!!!!!!!!!!!!!!!! gotta reset to [] when you start to add for a new shape when you make it ask multiple shapes in a while loop later
 
         rerun = input_checker("\nWould you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
@@ -131,7 +132,7 @@ if ask_a == "y":
     loop = True
     while loop:
         # shapes_lengths is the list for the individual shape's lengths added
-        shape_history = []
+        shape_a_hist = []
         shape_a = input_checker("What shape would you like to find the area for? ", checklist=shapes_list, error_msg="Please choose one of the shapes from the list!", num_ok=False)
 
         if shape_a == "c":
@@ -146,7 +147,7 @@ if ask_a == "y":
             shape_a = "trapezium"
         elif shape_a == "p":
             shape_a = "parallelogram"
-        shape_history.append(shape_a)
+        shape_a_hist.append(shape_a)
 
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
 
@@ -158,35 +159,35 @@ if ask_a == "y":
             unit = "m"
         elif unit in km:
             unit = "km"
-        shape_history.append(unit)
+        shape_a_hist.append(unit)
 
         if shape_a == "circle" or shape_a == "c":
             r = input_checker("Radius: ")
             area = pi*(r**2)
-            shape_history.append(area)
+            shape_a_hist.append(area)
 
         elif shape_a in bh_list:
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             area = base * height
-            shape_history.append(area)
+            shape_a_hist.append(area)
 
         elif shape_a == "triangle" or shape_a == "t":
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             area = (base * height)/2
-            shape_history.append(area)
+            shape_a_hist.append(area)
 
         elif shape_a == "trapezium" or shape_a == "z":
             base = input_checker("Base: ")
             height = input_checker("Height: ")
             top_length = input_checker("Top length: ")
             area = ((top_length + base) * height)/2
-            shape_history.append(area)
+            shape_a_hist.append(area)
 
         # don't need area=0 bc not adding onto previous numbers
         print("Area: {:.2f}{}".format(area, unit))
-        all_history.append(shape_history)
+        all_a_history.append(shape_a_hist)
 
         rerun = input_checker("Would you like to calculate the area for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
         if rerun == "n":
@@ -196,7 +197,19 @@ else:
     loop = False
 
 history_ask = input_checker("Would you like a history of your previously calculated areas/perimeters? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
-if history_ask != "n":
-    for item in all_history:
-        print("{}: {:.2f}{}".format(item[0], item[2], item[1]))
 
+if ask_p == "y":
+    if history_ask != "n":
+        print("Perimeter History:")
+        for item in all_p_history:
+            print("{}: {:.2f}{}".format(item[0], item[2], item[1]))
+print()
+if ask_a == "y":
+    if history_ask != "n":
+        print("Area History:")
+        for item in all_a_history:
+            print("{}: {:.2f}{}".format(item[0], item[2], item[1]))
+
+# mention that it's rounded to 2sf, Make sure to tell them that their measurements have to be in the same units, blank test
+# what is shape history, is it needed bc it keeps all the info for each shape 'together'
+# change the ask pa bc doesn't give both as an option
