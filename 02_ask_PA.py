@@ -50,3 +50,5 @@ ask_p = input_checker("Would you like to find the perimeter? (Y/N) ", checklist=
 # ask user if they want to find the perimeter
 ask_a = input_checker("Would you like to find the area? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 
+print(ask_p, ask_a)
+

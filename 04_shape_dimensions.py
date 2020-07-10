@@ -102,4 +102,3 @@ elif ask_shape_p != "circle":
         shapes_lengths.append(length)
 
 print(("Measurements: {}").format(shapes_lengths))
-

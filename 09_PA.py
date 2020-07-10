@@ -212,7 +212,3 @@ if ask_a == "y":
         print("Area History:")
         for item in all_a_history:
             print("{}: {:.2f}{}".format(item[0], item[2], item[1]))
-
-# blank test
-# what is shape history, is it needed bc it keeps all the info for each shape 'together'
-# change the ask pa bc doesn't give both as an option

@@ -50,7 +50,6 @@ all_a_history = []
 
 # num_lengths is number next to these shapes, amount of times to ask for length
 shapes_list = {"circle": 1, "c": 1, "square": 1, "s": 1, "rectangle": 0, "r": 0, "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 0, "p": 0}
-r_p_list = ["rectangle", "r", "parallelogram", "p"]
 units_list = ["mm", "millimeters", "millimetres", "millimeter", "millimetre", "cm", "centimeters", "centimetres", "centimeter", "centimetre",
               "m", "meters", "metres", "meter", "metre", "km", "kilometers", "kilometres", "kilometer", "kilometre"]
 mm = ["mm", "millimeters", "millimetres", "millimeter", "millimetre"]
@@ -59,17 +58,20 @@ m = ["m", "meters", "metres", "meter", "metre"]
 km = ["km", "kilometers", "kilometres", "kilometer", "kilometre"]
 pi= 3.14159265
 
-print ("=========================== Welcome to the Perimeter/Area Calculator! ===========================\n"
-       "\nThis tool helps you to calculate the perimeter and/or area for different shapes (listed below)\n"
-       "and your calculation history may be printed at the end if you wish, just type your answer at the \n"
-       "end of each question then press 'enter', and don't leave anything blank!\n"
-       "\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\n"
-      "Unit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)\n"
-       "\nPlease make sure that the measurements you enter for each shape are numbers above zero and in\n"
-       "the same units! All the perimeters/areas will be rounded to 2s.f.\n"
-       "\n=================================================================================================\n")
+print ("=========================== Welcome to the Perimeter/Area Calculator! ===========================\n")
+PA_user = input_checker("Have you used this Area/Perimeter Calculator before? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
+if PA_user == "n":
+    print("\nThis tool helps you to calculate the perimeter and/or area for multiple different shapes\n(listed below) and your calculation history may be printed at the end if you wish. You can\n"
+    "calculate the perimeter of different shapes unless you say 'n', and then you can calculate the\narea of different shapes. Each time you will have to enter the shape's info, just type your answer\n"
+    "at the end of each question then press 'enter', and don't leave anything blank! Please make sure\nthat the measurements you enter for each shape are numbers above zero and each length is in the\n"
+    "same unit! All the perimeters/areas will be rounded to 2s.f.\n"
+    "\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
+else:
+    print("\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
+print("\n=================================================================================================\n")
 
 ask_p = input_checker("Would you like to find the perimeter of a shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
+r_p_list = ["rectangle", "r", "parallelogram", "p"]
 
 if ask_p == "y":
     loop = True
@@ -136,7 +138,6 @@ if ask_p == "y":
         rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
         if rerun == "n":
             loop = False
-
 else:
     loop = False
 
@@ -211,24 +212,21 @@ if ask_a == "y":
         rerun = input_checker("Would you like to calculate the area for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
         if rerun == "n":
             loop = False
-
 else:
     loop = False
 
 history_ask = input_checker("Would you like the history of your previously calculated perimeters/areas? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
 print("===========================================================================")
 if ask_p == "y":
-    if history_ask != "n":
+    if history_ask == "y":
         print("Perimeter History:")
         for item in all_p_history:
             print("{}: {:.2f}{}".format(item[0], item[2], item[1]).capitalize())
 print()
 if ask_a == "y":
-    if history_ask != "n":
+    if history_ask == "y":
         print("Area History:")
         for item in all_a_history:
             print("{}: {:.2f}{}\u00b2".format(item[0], item[2], item[1]).capitalize())
 
-# blank test
-# what is shape history, is it needed bc it keeps all the info for each shape 'together'
-# change the ask pa bc doesn't give both as an option
+print("Thank you for using the Perimeter/Area Calculator!")
