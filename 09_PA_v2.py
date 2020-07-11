@@ -1,42 +1,29 @@
-# Some parameters assigned by default if not assigned in the function (keyword arguments, e.g. num_ok=True means if you don't assign a value to num_ok, it will just be True automatically)
+# https://treyhunner.com/2018/04/keyword-arguments-in-python/#What_are_keyword_arguments?
+# Some arguments have a default if not assigned in the function (e.g. num_ok=True means it will just be True automatically if you don't assign a value to num_ok)
+# question (str): question to ask user, checklist (list): list of valid answers, error_msg (str): print statement when invalid answer entered, num_ok (bool): True- checks if it's a positive number
 
-# Args:
-# question (str)    question to ask user
-# checklist (list)  list of valid answers
-# error_msg (str)   statement to print for user when invalid answer
-# num_ok (bool)     True: checks whether input is a positive number
-
-# string checker from Mrs Gottschalk, edited so can have different error messages, got sister to help combine functions for efficiency
+# string checker from Mrs GK, combined with num_checker, got sister to help combine functions for efficiency
 def input_checker(question, checklist=None, error_msg=None, num_ok=True):
-# top sections is 'what it means'/ what it puts as the value, the bottom section is what it does
-    if num_ok: # prints this error message if it goes to the while loop, if it's a negative number or blank
+    if num_ok: # prints this error msg in while loop if num_ok=True
         error = "Please enter a number that is more than zero!"
     else:
-        error = error_msg # otherwise prints out the error msg in the function arguments
-
-    while True: # for the whole thing, not the same as num_ok=True
-        if num_ok: # since it's set to true, it will do this bc it allows numbers otherwise,
-            # Check if number is valid measurement (positive)
+        error = error_msg # otherwise prints out error_msg set in the arg when num_ok=False
+    while True: # not the same as num_ok=True!! just means this will keep looping
+        if num_ok: # since num_ok=True (allows numbers), checks if number is valid measurement (positive)
             try:
                 response = input(question).lower()
-                # If it's a number need to convert string number to float number
-                # If it's another character, trying to convert to float will fail and error out
-                response = float(response)
-                # if number is a negative or zero, it prints error msg otherwise it will use your answer as the response
-                if response <= 0:
+                response = float(response) # If it's a number, need to convert 'string' number to 'float' number which is why they 'equal' each other
+                if response <= 0: # if number is negative/zero, prints error msg, otherwise it uses valid answer as the response
                     print(error)
                 else:
                     return response
 
             except ValueError:
-                # Typing a non-number answers goes here
+                # Typing a non-number answers goes here bc converting to float will fail and error out
                 print(error)
-                # After this line it just exits because of the "Error"
 
-        else: # ** it goes to this since it can't have numbers and num_ok=false
-            # Check if answer is in list
+        else: # it checks if answer is in a list instead since it can't have numbers (num_ok=false)
             response = input(question).lower()
-
             if response in checklist:
                 return response
             else:
@@ -44,11 +31,9 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
 
 # *** Main Routine starts here ***
 # Initialise lists
-# all_lengths includes every shapes' dimensions
 all_p_history = []
 all_a_history = []
-
-# num_lengths is number next to these shapes, amount of times to ask for length
+# https://www.w3schools.com/python/python_dictionaries.asp, num_lengths is no. next to each shape (amount of times to ask for length)
 shapes_list = {"circle": 1, "c": 1, "square": 1, "s": 1, "rectangle": 0, "r": 0, "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 0, "p": 0}
 units_list = ["mm", "millimeters", "millimetres", "millimeter", "millimetre", "cm", "centimeters", "centimetres", "centimeter", "centimetre",
               "m", "meters", "metres", "meter", "metre", "km", "kilometers", "kilometres", "kilometer", "kilometre"]
@@ -58,6 +43,7 @@ m = ["m", "meters", "metres", "meter", "metre"]
 km = ["km", "kilometers", "kilometres", "kilometer", "kilometre"]
 pi= 3.14159265
 
+# INSTRUCTIONS/INTRO
 print ("=========================== Welcome to the Perimeter/Area Calculator! ===========================\n")
 PA_user = input_checker("Have you used this Perimeter/Area Calculator before? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 if PA_user == "n":
@@ -70,16 +56,16 @@ else:
     print("\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
 print("\n=================================================================================================")
 
+# PERIMETER
 ask_p = input_checker("Would you like to find the perimeter of a shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
 r_p_list = ["rectangle", "r", "parallelogram", "p"]
 
 if ask_p == "y":
     loop = True
     while loop:
-        # shapes_lengths is the list for the individual shape's lengths added
-        shape_p_hist = []
+        shape_p_hist = [] # shape_p_hist is the list for the individual shape's perimeter, unit and shape name
         shape_p = input_checker("Shape: ", error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
-        if shape_p == "c":
+        if shape_p == "c": # these allow for the letters associated with the shape
             shape_p = "circle"
         elif shape_p == "s":
             shape_p = "square"
@@ -94,7 +80,7 @@ if ask_p == "y":
         shape_p_hist.append(shape_p)
 
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
-        if unit in mm:
+        if unit in mm: # these make sure the abbreviations are printed no matter what the input is
             unit = "mm"
         elif unit in cm:
             unit = "cm"
@@ -120,16 +106,15 @@ if ask_p == "y":
             perimeter = length*4
             shape_p_hist.append(perimeter)
 
-        elif shape_p != "circle" or shape_p != "c":
-            num_lengths = shapes_list[shape_p]
-            # e.g. for i in [0,1,2,3] ..... range is a function that gives an array of numbers starting from 0
-            # initialise counter outside the for loop
-            perimeter = 0
-            for i in range(num_lengths):
-                # length is for each side of the shape
-                length = input_checker("Length {}: ".format(i+1))
+        elif shape_p != "circle" or shape_p != "c": # https://www.w3schools.com/python/ref_func_range.asp got sister to help/explain
+            num_lengths = shapes_list[shape_p] # the no. next to the shapes in shapes_list, https://www.iteanz.com/tutorials/python/accessing-values-in-dictionary/
+            perimeter = 0 # need perimeter=0 bc adding onto previous numbers, outside 'for' loop bc if it was in, each time it asks for the length, perimeter would go back to zero and won't add
+            for i in range(num_lengths): # gets number associated with the shape chosen
+                length = input_checker("Length {}: ".format(i+1)) # increases each time it asks for length
                 perimeter += length
-            shape_p_hist.append(perimeter)
+            shape_p_hist.append(perimeter) # the no. next to the shapes is the nth number in the i array/range since i starts from zero,
+            # e.g. triangle:3, i=2 bc 2 is 3rd number in i range/array, for {} in Length: to be printed, it must be i+1, but technically
+            # '3' is the amount of times to ask for the length
 
         print("Perimeter: {:.2f}{}".format(perimeter, unit))
         all_p_history.append(shape_p_hist)
@@ -141,16 +126,16 @@ if ask_p == "y":
 else:
     loop = False
 
+# AREA
 ask_a = input_checker("Would you like to find the area of a shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
 bh_list = ["rectangle", "r", "parallelogram", "p"]
 
 if ask_a == "y":
     loop = True
     while loop:
-        # shapes_lengths is the list for the individual shape's lengths added
-        shape_a_hist = []
+        shape_a_hist = [] # shape_a_hist is the list for the individual shape's area, unit and shape name
         shape_a = input_checker("Shape: ", checklist=shapes_list, error_msg="Please choose one of the shapes from the list!", num_ok=False)
-        if shape_a == "c":
+        if shape_a == "c": # these allow for the letters associated with the shape
             shape_a = "circle"
         elif shape_a == "s":
             shape_a = "square"
@@ -165,7 +150,7 @@ if ask_a == "y":
         shape_a_hist.append(shape_a)
 
         unit = input_checker("Unit: ", checklist=units_list, error_msg="Please enter a valid unit!", num_ok=False)
-        if unit in mm:
+        if unit in mm: # these make sure the abbreviations are printed no matter what the input is
             unit = "mm"
         elif unit in cm:
             unit = "cm"
@@ -204,7 +189,6 @@ if ask_a == "y":
             area = ((top_length + base) * height)/2
             shape_a_hist.append(area)
 
-        # don't need area=0 bc not adding onto previous numbers
         print("Area: {:.2f}{}\u00b2".format(area, unit))
         all_a_history.append(shape_a_hist)
         print("=================================================================================================")
@@ -215,6 +199,7 @@ if ask_a == "y":
 else:
     loop = False
 
+# HISTORY
 history_ask = input_checker("Would you like the history of your previously calculated perimeters/areas? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
 print("=================================================================================================")
 if ask_p == "y":
@@ -226,7 +211,6 @@ if ask_p == "y":
 if ask_a == "y":
     if history_ask == "y":
         print("Area History:")
-        for item in all_a_history:
+        for item in all_a_history: # https://www.w3resource.com/python-exercises/string/python-data-type-string-exercise-43.php?fbclid=IwAR0-h5EDQvSts6db5OHIWqtQ_fQmO_Cex69sNV-9tqngW0lSSfBONt0woNI
             print("{}: {:.2f}{}\u00b2".format(item[0], item[2], item[1]).capitalize())
-
 print("\nThank you for using the Perimeter/Area Calculator!")

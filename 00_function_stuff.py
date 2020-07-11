@@ -53,15 +53,6 @@ def num_check(question):
             print(error)
 
 
-
-
-# Ask if they want a fixed_cost list and if so, get inputs for it
-fixed_q = input("Do you have any fixed costs?")
-
-if fixed_q == "yes":
-    print("*** Fixed Costs ***")
-    for item in all_fixed_costs:
-
 import sys
 # Some parameters assigned by default if not assigned in the function (keyword arguments, e.g. num_ok=True means if you don't assign a value to num_ok, it will just be True automatically)
 
@@ -110,4 +101,3 @@ def input_checker(question, checklist=None, error_msg=None, num_ok=True):
                 return response
             else:
                 print(error)
-
