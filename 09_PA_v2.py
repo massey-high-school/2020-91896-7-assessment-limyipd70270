@@ -68,7 +68,7 @@ if PA_user == "n":
     "\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
 else:
     print("\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
-print("\n=================================================================================================\n")
+print("\n=================================================================================================")
 
 ask_p = input_checker("Would you like to find the perimeter of a shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
 r_p_list = ["rectangle", "r", "parallelogram", "p"]
