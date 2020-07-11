@@ -59,7 +59,7 @@ km = ["km", "kilometers", "kilometres", "kilometer", "kilometre"]
 pi= 3.14159265
 
 print ("=========================== Welcome to the Perimeter/Area Calculator! ===========================\n")
-PA_user = input_checker("Have you used this Area/Perimeter Calculator before? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
+PA_user = input_checker("Have you used this Perimeter/Area Calculator before? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N", num_ok=False)
 if PA_user == "n":
     print("\nThis tool helps you to calculate the perimeter and/or area for multiple different shapes\n(listed below) and your calculation history may be printed at the end if you wish. You can\n"
     "calculate the perimeter of different shapes unless you say 'n', and then you can calculate the\narea of different shapes. Each time you will have to enter the shape's info, just type your answer\n"
@@ -133,7 +133,7 @@ if ask_p == "y":
 
         print("Perimeter: {:.2f}{}".format(perimeter, unit))
         all_p_history.append(shape_p_hist)
-        print("===================================================================")
+        print("=================================================================================================")
 
         rerun = input_checker("Would you like to calculate the perimeter for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
         if rerun == "n":
@@ -207,7 +207,7 @@ if ask_a == "y":
         # don't need area=0 bc not adding onto previous numbers
         print("Area: {:.2f}{}\u00b2".format(area, unit))
         all_a_history.append(shape_a_hist)
-        print("===================================================================")
+        print("=================================================================================================")
 
         rerun = input_checker("Would you like to calculate the area for another shape? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
         if rerun == "n":
@@ -216,17 +216,17 @@ else:
     loop = False
 
 history_ask = input_checker("Would you like the history of your previously calculated perimeters/areas? (Y/N) ", checklist=["y", "n"], error_msg="Please enter Y or N!", num_ok=False)
-print("===========================================================================")
+print("=================================================================================================")
 if ask_p == "y":
     if history_ask == "y":
         print("Perimeter History:")
         for item in all_p_history:
             print("{}: {:.2f}{}".format(item[0], item[2], item[1]).capitalize())
-print()
+    print()
 if ask_a == "y":
     if history_ask == "y":
         print("Area History:")
         for item in all_a_history:
             print("{}: {:.2f}{}\u00b2".format(item[0], item[2], item[1]).capitalize())
 
-print("Thank you for using the Perimeter/Area Calculator!")
+print("\nThank you for using the Perimeter/Area Calculator!")
