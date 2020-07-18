@@ -57,18 +57,18 @@ def p_checker():
         perimeter = 2*pi*raw_r
         shape_p_hist.append(r), shape_p_hist.append(perimeter)
 
+    elif shape == "square" or shape == "s":
+        raw_side = input_checker("Side: ")
+        side = "Side: {}".format(raw_side)
+        perimeter = raw_side*4
+        shape_p_hist.append(side), shape_p_hist.append(perimeter)
+
     elif shape in r_p_list:
         length_1 = input_checker("Length 1: ")
         length_2= input_checker("Length 2: ")
         p_shape_lengths.append(length_1), p_shape_lengths.append(length_2)
         perimeter = 2*length_1 + 2*length_2
         shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
-
-    elif shape == "square" or shape == "s":
-        raw_side = input_checker("Side: ")
-        side = "Side: {}".format(raw_side)
-        perimeter = raw_side*4
-        shape_p_hist.append(side), shape_p_hist.append(perimeter)
 
     elif shape != "circle" or shape != "c": # https://www.w3schools.com/python/ref_func_range.asp got sister to help/explain
         num_lengths = shapes_list[shape] # the no. next to the shapes in shapes_list, https://www.iteanz.com/tutorials/python/accessing-values-in-dictionary/
@@ -114,18 +114,18 @@ def a_checker():
         area = pi*(raw_r**2)
         shape_a_hist.append(r), shape_a_hist.append(area)
 
+    elif shape == "square" or shape == "s":
+        raw_side = input_checker("Side: ")
+        side = "Side: {}".format(raw_side)
+        area = raw_side**2
+        shape_a_hist.append(side), shape_a_hist.append(area)
+
     elif shape in bh_list:
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         a_shape_lengths.append(base), a_shape_lengths.append(height)
         area = base * height
         shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
-
-    elif shape == "square" or shape == "s":
-        raw_side = input_checker("Side: ")
-        side = "Side: {}".format(raw_side)
-        area = raw_side**2
-        shape_a_hist.append(side), shape_a_hist.append(area)
 
     elif shape == "triangle" or shape == "t":
         base = input_checker("Base: ")
