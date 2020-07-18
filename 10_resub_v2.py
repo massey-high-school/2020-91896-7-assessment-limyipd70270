@@ -93,10 +93,10 @@ while loop:
         shape_p_hist.append(unit)
 
         if shape == "circle" or shape == "c":
-            r = input_checker("Radius: ")
-            p_shape_lengths.append(r)
-            perimeter = 2*pi*r
-            shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
+            raw_r = input_checker("Radius: ")
+            r = "Radius: {}".format(raw_r)
+            perimeter = 2*pi*raw_r
+            shape_p_hist.append(r), shape_p_hist.append(perimeter)
 
         elif shape in r_p_list:
             length_1 = input_checker("Length 1: ")
@@ -106,10 +106,10 @@ while loop:
             shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
 
         elif shape == "square" or shape == "s":
-            side = input_checker("Side: ")
-            p_shape_lengths.append(side)
-            perimeter = side*4
-            shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
+            raw_side = input_checker("Side: ")
+            side = "Side: {}".format(raw_side)
+            perimeter = raw_side*4
+            shape_p_hist.append(side), shape_p_hist.append(perimeter)
 
         elif shape != "circle" or shape != "c": # https://www.w3schools.com/python/ref_func_range.asp got sister to help/explain
             num_lengths = shapes_list[shape] # the no. next to the shapes in shapes_list, https://www.iteanz.com/tutorials/python/accessing-values-in-dictionary/
@@ -144,10 +144,10 @@ while loop:
         shape_a_hist.append(unit)
 
         if shape == "circle" or shape == "c":
-            r = input_checker("Radius: ")
-            a_shape_lengths.append(r)
-            area = pi*(r**2)
-            shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
+            raw_r = input_checker("Radius: ")
+            r = "Radius: {}".format(raw_r)
+            area = pi*(raw_r**2)
+            shape_a_hist.append(r), shape_a_hist.append(area)
 
         elif shape in bh_list:
             base = input_checker("Base: ")
@@ -157,10 +157,10 @@ while loop:
             shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
 
         elif shape == "square" or shape == "s":
-            side = input_checker("Side: ")
-            a_shape_lengths.append(side)
-            area = side**2
-            shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
+            raw_side = input_checker("Side: ")
+            side = "Side: {}".format(raw_side)
+            area = raw_side**2
+            shape_a_hist.append(side), shape_a_hist.append(area)
 
         elif shape == "triangle" or shape == "t":
             base = input_checker("Base: ")
@@ -200,10 +200,10 @@ while loop:
         shape_p_hist.append(unit)
 
         if shape == "circle" or shape == "c":
-            r = input_checker("Radius: ")
-            p_shape_lengths.append(r)
-            perimeter = 2*pi*r
-            shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
+            raw_r = input_checker("Radius: ")
+            r = "Radius: {}".format(raw_r)
+            perimeter = 2*pi*raw_r
+            shape_p_hist.append(r), shape_p_hist.append(perimeter)
 
         elif shape in r_p_list:
             length_1 = input_checker("Length 1: ")
@@ -213,10 +213,10 @@ while loop:
             shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
 
         elif shape == "square" or shape == "s":
-            side = input_checker("Side: ")
-            p_shape_lengths.append(side)
-            perimeter = side*4
-            shape_p_hist.append(p_shape_lengths), shape_p_hist.append(perimeter)
+            raw_side = input_checker("Side: ")
+            side = "Side: {}".format(raw_side)
+            perimeter = raw_side*4
+            shape_p_hist.append(side), shape_p_hist.append(perimeter)
 
         elif shape != "circle" or shape != "c": # https://www.w3schools.com/python/ref_func_range.asp got sister to help/explain
             num_lengths = shapes_list[shape] # the no. next to the shapes in shapes_list, https://www.iteanz.com/tutorials/python/accessing-values-in-dictionary/
@@ -247,10 +247,10 @@ while loop:
         shape_a_hist.append(unit)
 
         if shape == "circle" or shape == "c":
-            r = input_checker("Radius: ")
-            a_shape_lengths.append(r)
-            area = pi*(r**2)
-            shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
+            raw_r = input_checker("Radius: ")
+            r = "Radius: {}".format(raw_r)
+            area = pi*(raw_r**2)
+            shape_a_hist.append(r), shape_a_hist.append(area)
 
         elif shape in bh_list:
             base = input_checker("Base: ")
@@ -260,10 +260,10 @@ while loop:
             shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
 
         elif shape == "square" or shape == "s":
-            side = input_checker("Side: ")
-            a_shape_lengths.append(side)
-            area = side**2
-            shape_a_hist.append(a_shape_lengths), shape_a_hist.append(area)
+            raw_side = input_checker("Side: ")
+            side = "Side: {}".format(raw_side)
+            area = raw_side**2
+            shape_a_hist.append(side), shape_a_hist.append(area)
 
         elif shape == "triangle" or shape == "t":
             base = input_checker("Base: ")
@@ -303,5 +303,3 @@ if history_ask == "y" or history_ask == "yes":
         print("{}{}\n".format(item[2], item[1]))
 
 print("Thank you for using the Perimeter/Area Calculator!")
-
-# this works, v2 will have the measurements listed
