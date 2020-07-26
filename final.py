@@ -224,5 +224,12 @@ if history_ask == "y" or history_ask == "yes":
             for item in a_shape_lengths:
                 print(item)
             print("")
+    print(shape_p_hist)
+    print(shape_a_hist)
+    print(all_p_history)
+    print(all_a_history)
+    print(p_shape_lengths)
+    print(a_shape_lengths)
+
 
 print("Thank you for using the Perimeter/Area Calculator!")
