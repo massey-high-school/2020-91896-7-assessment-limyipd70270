@@ -50,14 +50,14 @@ def calculate_perimeter():
 
     if shape == "circle" or shape == "c":
         r = input_checker("Radius: ")
-        p_shape_lengths.append("Radius: {}".format(r))
+        p_shape_lengths.append("Radius: {}{}".format(r, unit))
         perimeter = 2*pi*r
         shape_p_hist.append(perimeter)
         shape_p_hist.append(p_shape_lengths)
 
     elif shape == "square" or shape == "s":
         side = input_checker("Side: ")
-        p_shape_lengths.append("Side: {}".format(side))
+        p_shape_lengths.append("Side: {}{}".format(side, unit))
         perimeter = side*4
         shape_p_hist.append(perimeter)
         shape_p_hist.append(p_shape_lengths)
@@ -65,7 +65,7 @@ def calculate_perimeter():
     elif shape in r_p_list:
         length_1 = input_checker("Length 1: ")
         length_2= input_checker("Length 2: ")
-        p_shape_lengths.append("Length 1: {}".format(length_1)), p_shape_lengths.append("Length 2: {}".format(length_2))
+        p_shape_lengths.append("Length 1: {}{}".format(length_1, unit)), p_shape_lengths.append("Length 2: {}{}".format(length_2, unit))
         perimeter = 2*length_1 + 2*length_2
         shape_p_hist.append(perimeter)
         shape_p_hist.append(p_shape_lengths)
@@ -75,7 +75,7 @@ def calculate_perimeter():
         perimeter = 0 # need perimeter=0 bc adding onto previous numbers, outside 'for' loop bc if it was in, each time it asks for the length, perimeter would go back to zero and won't add
         for i in range(num_lengths): # gets number associated with the shape chosen
             length = input_checker("Length {}: ".format(i+1)) # increases each time it asks for length
-            p_shape_lengths.append("Length {}: {}".format(i+1, length))
+            p_shape_lengths.append("Length {}: {}{}".format(i+1, length, unit))
             perimeter += length
         shape_p_hist.append(perimeter)
         shape_p_hist.append(p_shape_lengths)# the no. next to the shapes is the nth number in the i array/range since i starts from zero,
@@ -94,14 +94,14 @@ def calculate_area():
 
     if shape == "circle" or shape == "c":
         r = input_checker("Radius: ")
-        a_shape_lengths.append("Radius: {}".format(r))
+        a_shape_lengths.append("Radius: {}{}".format(r, unit))
         area = pi*(r**2)
         shape_a_hist.append(area)
         shape_a_hist.append(a_shape_lengths)
 
     elif shape == "square" or shape == "s":
         side = input_checker("Side: ")
-        a_shape_lengths.append("Side: {}".format(side))
+        a_shape_lengths.append("Side: {}{}".format(side, unit))
         area = side**2
         shape_a_hist.append(area)
         shape_a_hist.append(a_shape_lengths)
@@ -109,7 +109,7 @@ def calculate_area():
     elif shape in bh_list:
         base = input_checker("Base: ")
         height = input_checker("Height: ")
-        a_shape_lengths.append("Base: {}".format(base)), a_shape_lengths.append("Height: {}".format(height))
+        a_shape_lengths.append("Base: {}{}".format(base, unit)), a_shape_lengths.append("Height: {}{}".format(height, unit))
         area = base * height
         shape_a_hist.append(area)
         shape_a_hist.append(a_shape_lengths)
@@ -117,7 +117,7 @@ def calculate_area():
     elif shape == "triangle" or shape == "t":
         base = input_checker("Base: ")
         height = input_checker("Height: ")
-        a_shape_lengths.append("Base: {}".format(base)), a_shape_lengths.append("Height: {}".format(height))
+        a_shape_lengths.append("Base: {}{}".format(base, unit)), a_shape_lengths.append("Height: {}{}".format(height, unit))
         area = (base * height)/2
         shape_a_hist.append(area)
         shape_a_hist.append(a_shape_lengths)
@@ -126,7 +126,7 @@ def calculate_area():
         base = input_checker("Base: ")
         height = input_checker("Height: ")
         top_length = input_checker("Top length: ")
-        a_shape_lengths.append("Base: {}".format(base)), a_shape_lengths.append("Height: {}".format(height)), a_shape_lengths.append("Top Length: {}".format(top_length))
+        a_shape_lengths.append("Base: {}{}".format(base, unit)), a_shape_lengths.append("Height: {}{}".format(height, unit)), a_shape_lengths.append("Top Length: {}{}".format(top_length, unit))
         area = ((top_length + base) * height)/2
         shape_a_hist.append(area)
         shape_a_hist.append(a_shape_lengths)
@@ -139,6 +139,7 @@ def calculate_area():
 # Initialise lists
 all_p_history = []
 all_a_history = []
+
 # https://www.w3schools.com/python/python_dictionaries.asp, num_lengths is no. next to each shape (amount of times to ask for length)
 shapes_list = {"circle": 1, "c": 1, "square": 1, "s": 1, "rectangle": 0, "r": 0, "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 0, "p": 0}
 pi= 3.14159265
@@ -195,14 +196,33 @@ history_ask = input_checker("Would you like the history of your previously calcu
 print("=================================================================================================")
 
 if history_ask == "y" or history_ask == "yes":
-    if pab_ask == "p" or pab_ask == "perimeter":
+    if pab_ask == "b" or pab_ask == "both":
         for item in all_p_history:
             print("{}".format(item[0]).upper())
             print("Perimeter: {:.2f}{}".format(item[2], item[1]))
+            for item in p_shape_lengths:
+                print(item)
+            print("")
 
-    elif pab_ask == "a" or pab_ask == "area":
+        for item in all_a_history:
+            print("Area: {:.2f}{}\u00b2".format(item[2], item[1]))
+            for item in a_shape_lengths:
+                print(item)
+            print("")
+
+    else:
+        for item in all_p_history:
+            print("{}".format(item[0]).upper())
+            print("Perimeter: {:.2f}{}".format(item[2], item[1]))
+            for item in p_shape_lengths:
+                print(item)
+            print("")
+
         for item in all_a_history:
             print("{}".format(item[0]).upper())
             print("Area: {:.2f}{}\u00b2".format(item[2], item[1]))
+            for item in a_shape_lengths:
+                print(item)
+            print("")
 
 print("Thank you for using the Perimeter/Area Calculator!")
