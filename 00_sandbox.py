@@ -54,19 +54,6 @@ while shape != "xxx":
 
     main_list.append(shape_info)
 
-    width = float(input("Width: "))
-    dimensions = "width: {}".format(width)
-
-    area = width * width
-    perimeter = width * 4
-
-    shape_info.append(shape)
-    shape_info.append(dimensions)
-    shape_info.append(area)
-    shape_info.append(perimeter)
-
-    main_list.append(shape_info)
-
 
 # print it!
 print("Shape Info")
