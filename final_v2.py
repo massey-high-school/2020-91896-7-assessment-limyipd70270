@@ -137,7 +137,7 @@ def calculate_area():
 
 # *** Main Routine starts here ***
 # Initialise lists
-history = []
+
 
 # https://www.w3schools.com/python/python_dictionaries.asp, num_lengths is no. next to each shape (amount of times to ask for length)
 shapes_list = {"circle": 1, "c": 1, "square": 1, "s": 1, "rectangle": 0, "r": 0, "triangle": 3, "t": 3, "trapezium": 4, "z": 4, "parallelogram": 0, "p": 0}
@@ -155,11 +155,14 @@ else:
     print("\nShape choices: \ncircle (c), square (s), rectangle (r), triangle (t), trapezium (z), parallelogram (p)\nUnit choices: \nmillimetres (mm), centimetres (cm), metres (m), kilometres (km)")
 print("\n=================================================================================================")
 
+history = []
+p_shape_lengths = []
+a_shape_lengths = []
+
 loop = True
 while loop:
     shape_info = []
-    p_shape_lengths = []
-    a_shape_lengths = []
+
     shape = input_checker("Shape: ", error_msg="Please choose one of the shapes from the list!", num_ok=False, checklist=shapes_list)
     if shape == "c": # these allow for the letters associated with the shape
         shape = "circle"
@@ -195,20 +198,20 @@ print("=========================================================================
 
 if history_ask == "y" or history_ask == "yes":
     for item in history:
-        print("{}".format(item[0]).upper())
-        print("Perimeter: {}{}".format(item[2], item[1]))
-        for item in p_shape_lengths:
-            print(item)
-        print("")
+        if pab_ask == "p" or pab_ask == "perimeter":
+            print("{}".format(item[0]).upper())
+            print("Perimeter: {:.2f}{}".format(item[2], item[1]))
+            for item in p_shape_lengths:
+                print(item)
+            print("")
 
-        print("{}".format(item[0]).upper())
-        print("Area: {}{}\u00b2".format(item[2], item[1]))
-        for item in a_shape_lengths:
-            print(item)
-        print("")
+        elif pab_ask == "a" or pab_ask == "area":
+            print("{}".format(item[0]).upper())
+            print("Area: {:.2f}{}\u00b2".format(item[2], item[1]))
+            for item in a_shape_lengths:
+                print(item)
+            print("")
 
-        print(perimeter)
-        print
 print(shape_info)
 print(history)
 print(p_shape_lengths)
